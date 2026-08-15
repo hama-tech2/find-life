@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | دۆزینەوە</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M12 21V7m0 5c-4 0-6-2.5-6-6 4 0 6 2.5 6 6Zm0-2c4 0 6-2.5 6-6-4 0-6 2.5-6 6Z"/><path d="M12 21 5 14m7 7 7-7"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="icon-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M8 4v6m8 4v6"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/></symbol>
+    <symbol id="icon-requests" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 9h6m-6 4h6m-6 4h3"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/><circle cx="12" cy="12" r="10"/></symbol>
+  </svg>
+  <div class="app-shell">
+    <header class="app-header">
+      <button class="header-action" type="button" data-placeholder="ڕێکخستنەکانی هەژمار لە قۆناغی داهاتوودا زیاد دەکرێت." aria-label="ڕێکخستن"><svg aria-hidden="true"><use href="#icon-user"/></svg></button>
+      <a class="brand" href="index.html" aria-label="Find Your Life"><span class="brand-mark"><svg><use href="#icon-leaf"/></svg></span><span class="brand-name">Find Your Life</span></a>
+    </header>
+    <main class="discover-page">
+      <section class="page-title-row" aria-labelledby="discover-title"><div><p class="eyebrow">ناسینەوەی بەڕێز</p><h1 id="discover-title">دۆزینەوە</h1></div><span class="active-intro"><span class="status-dot"></span> ناساندنێکی چالاک</span></section>
+      <p class="trust-note"><svg aria-hidden="true"><use href="#icon-shield"/></svg>تەنها بۆ هاوسەرگیریی جدی؛ وێنە و زانیاریی پەیوەندی پارێزراون.</p>
+      <p class="preference-summary" data-discover-preferences hidden></p>
+      <section class="discover-controls" aria-label="گەڕان و فلتەر">
+        <label class="search-field"><span class="sr-only">گەڕان بۆ ناساندن</span><svg aria-hidden="true"><use href="#icon-search"/></svg><input id="searchInput" type="search" placeholder="گەڕان بە ناو یان بەها" autocomplete="off"></label>
+        <div class="filter-row"><label class="select-field"><span class="sr-only">شار</span><select id="cityFilter"><option value="">هەموو شارەکان</option><option value="هەولێر">هەولێر</option><option value="سلێمانی">سلێمانی</option><option value="دهۆک">دهۆک</option></select><svg aria-hidden="true"><use href="#icon-chevron"/></svg></label><label class="select-field"><span class="sr-only">مەودای تەمەن</span><select id="ageFilter"><option value="">هەموو تەمەنەکان</option><option value="24-28">24–28 ساڵ</option><option value="26-30">26–30 ساڵ</option><option value="29-34">29–34 ساڵ</option></select><svg aria-hidden="true"><use href="#icon-chevron"/></svg></label><button class="filter-button" type="button" aria-label="فلتەر" data-placeholder="فلتەری وردتر لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-sliders"/></svg><span>فلتەر</span></button></div>
+      </section>
+      <section id="introductionList" class="introduction-list" aria-live="polite">
+        <article class="introduction-card" data-name="سارا" data-city="هەولێر" data-age="26-30" data-values="خێزاندوست ئارام"><div class="card-heading"><div><h2>سارا</h2><p>26–30 ساڵ <span aria-hidden="true">•</span> هەولێر</p></div><span class="private-profile" aria-label="پڕۆفایلی پارێزراو"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span></div><p class="meta-line"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>مامۆستای قوتابخانە</p><div class="value-list"><span>خێزاندوست</span><span>ئارام</span></div><p class="intention">بۆ هاوسەرگیریی ڕێک و بەڕێز داهاتووم.</p><button class="button button-primary view-button" type="button" data-person="سارا">بینینی ناساندن</button></article>
+        <article class="introduction-card" data-name="ئەحمەد" data-city="سلێمانی" data-age="29-34" data-values="جدی بەڕێز"><div class="card-heading"><div><h2>ئەحمەد</h2><p>29–34 ساڵ <span aria-hidden="true">•</span> سلێمانی</p></div><span class="private-profile" aria-label="پڕۆفایلی پارێزراو"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span></div><p class="meta-line"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>گەندەڵازی مەدەنی</p><div class="value-list"><span>جدی</span><span>بەڕێز</span></div><p class="intention">دەمەوێت پەیوەندییەکی پاک بۆ هاوسەرگیری دروست بکەم.</p><button class="button button-primary view-button" type="button" data-person="ئەحمەد">بینینی ناساندن</button></article>
+        <article class="introduction-card" data-name="ڕۆژین" data-city="دهۆک" data-age="24-28" data-values="ڕێکخراو متمانەپێکراو"><div class="card-heading"><div><h2>ڕۆژین</h2><p>24–28 ساڵ <span aria-hidden="true">•</span> دهۆک</p></div><span class="private-profile" aria-label="پڕۆفایلی پارێزراو"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span></div><p class="meta-line"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>خوێندکاریی ماستەر</p><div class="value-list"><span>ڕێکخراو</span><span>متمانەپێکراو</span></div><p class="intention">ئامادەم بۆ ناساندنێکی ڕاست و بە مەبەستی هاوسەرگیری.</p><button class="button button-primary view-button" type="button" data-person="ڕۆژین">بینینی ناساندن</button></article>
+      </section>
+      <section id="emptyState" class="empty-state" hidden><svg aria-hidden="true"><use href="#icon-compass"/></svg><h2>هیچ ناساندنێک نەدۆزرایەوە</h2><p>فلتەرەکان بگۆڕە یان گەڕانەکەت بسڕەوە.</p><button id="clearFilters" class="button button-secondary" type="button">سڕینەوەی فلتەرەکان</button></section>
+    </main>
+    <nav class="bottom-nav" aria-label="ناڤیگەیشنی سەرەکی"><a class="nav-item is-active" href="discover.html" aria-current="page"><svg aria-hidden="true"><use href="#icon-compass"/></svg><span>دۆزینەوە</span></a><a class="nav-item" href="requests.html"><svg aria-hidden="true"><use href="#icon-requests"/></svg><span>داواکارییەکان</span></a><button class="nav-item" type="button" data-placeholder="ناساندنەکەت لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-user"/></svg><span>ناساندنەکەم</span></button><button class="nav-item" type="button" data-placeholder="پڕۆفایل لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-profile"/></svg><span>هەژمار</span></button></nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

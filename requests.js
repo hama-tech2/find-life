@@ -1,0 +1,60 @@
+(() => {
+  const requestData = {
+    r1: { tab: "received", direction: "received", name: "ئەحمەد", age: "31 ساڵ", city: "سلێمانی", occupation: "گەندەڵازی مەدەنی", status: "هاتووە • چاوەڕێی بڕیارتە", intention: "بۆ ژیانێکی هاوبەش و هاوسەرگیرییەکی جدی دەگەڕێم. دەمەوێت هەموو هەنگاوێک بە ڕێز و گفتوگۆ بێت.", value: "ڕاستگۆیی، ڕێز و پشتیوانیی یەکتر بۆم گرنگترینن.", question: "دەمەوێت زیاتر لە شێوازی گفتوگۆ و بیرۆکەت بۆ ژیانی خێزانی بزانم." },
+    r2: { tab: "received", direction: "received", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "هاتووە • چاوەڕێی بڕیارتە", intention: "ئامادەم بۆ ناساندنێکی ڕێک و بە مەبەستی دروستکردنی خێزانم.", value: "متمانە، ئارامی و ڕێزکردن لە خێزان بۆم گرنگن.", question: "دەمەوێت بزانم چۆن سەیری هاوبەشبوون و بەرپرسیارێتی لە ماڵدا دەکەیت." },
+    s1: { tab: "sent", direction: "sent", name: "سارا", age: "27 ساڵ", city: "هەولێر", occupation: "مامۆستای قوتابخانە", status: "چاوەڕێی وەڵام", intention: "بۆ ژیانێکی هاوبەش و بەڕێز دەگەڕێم، لەسەر بنەمای ڕێز و گفتوگۆ.", value: "ڕاستگۆیی و ئارامی بۆم گرنگن.", question: "دەمەوێت زیاتر لە شێوازی ژیانت و بیرۆکەت بۆ خێزان بزانم." },
+    s2: { tab: "sent", direction: "sent", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "ئەم ناساندنە چیتر بەردەست نییە.", intention: "بۆ ناساندنێکی جدی و بەرپرسیارانە دەگەڕێم.", value: "متمانە و ڕێز بۆم گرنگن.", question: "دەمەوێت زیاتر لە بەهاکانی خێزانی بزانم." },
+  };
+  const setText = (selector, text) => { const element = document.querySelector(selector); if (element) element.textContent = text; };
+
+  const inbox = document.querySelector("[data-inbox-page]");
+  if (inbox) {
+    const tabs = [...document.querySelectorAll("[data-inbox-tab]")];
+    const panels = [...document.querySelectorAll("[data-inbox-panel]")];
+    const requestedTab = new URLSearchParams(window.location.search).get("tab");
+    const setTab = (tab, updateUrl = false) => {
+      const activeTab = tab === "sent" ? "sent" : "received";
+      tabs.forEach((button) => button.setAttribute("aria-selected", String(button.dataset.inboxTab === activeTab)));
+      panels.forEach((panel) => { panel.hidden = panel.dataset.inboxPanel !== activeTab; });
+      if (updateUrl) window.history.replaceState(null, "", `requests.html?tab=${activeTab}`);
+    };
+    setTab(requestedTab);
+    tabs.forEach((button) => button.addEventListener("click", () => setTab(button.dataset.inboxTab, true)));
+    document.querySelectorAll("[data-open-request]").forEach((button) => button.addEventListener("click", () => { window.location.href = `request-detail.html?id=${button.dataset.openRequest}`; }));
+  }
+
+  const detail = document.querySelector("[data-request-detail]");
+  if (!detail) return;
+  const requestId = new URLSearchParams(window.location.search).get("id");
+  const request = requestData[requestId] || requestData.r1;
+  setText("[data-detail-name]", request.name); setText("[data-detail-age]", request.age); setText("[data-detail-city]", request.city); setText("[data-detail-occupation]", request.occupation); setText("[data-detail-status]", request.status); setText("[data-answer-intention]", request.intention); setText("[data-answer-value]", request.value); setText("[data-answer-question]", request.question);
+  document.querySelectorAll("[data-inbox-back]").forEach((link) => { link.href = `requests.html?tab=${request.tab}`; });
+  const receivedActions = document.querySelector("[data-received-actions]");
+  const safetyMenu = document.querySelector("[data-safety-menu]");
+  if (request.direction === "sent") { receivedActions.hidden = true; safetyMenu.hidden = true; }
+
+  const actionState = document.querySelector("[data-action-state]");
+  const showState = (title, copy, showGuided = false) => {
+    receivedActions.hidden = true;
+    document.querySelector("[data-close-confirmation]").hidden = true;
+    safetyMenu.hidden = true;
+    setText("[data-action-title]", title); setText("[data-action-copy]", copy);
+    const guidedContinue = document.querySelector("[data-guided-continue]");
+    guidedContinue.hidden = !showGuided;
+    if (showGuided) guidedContinue.href = `guided.html?person=${encodeURIComponent(request.name)}&request=${requestId || "r1"}`;
+    actionState.hidden = false;
+    actionState.focus();
+  };
+  document.querySelector("[data-accept-request]")?.addEventListener("click", () => showState("داواکارییەکە لەم prototype ـەدا پەسەند کرا.", "دەتوانیت لەم prototype ـەدا بچیتە قۆناغی ناسینی ڕێنمایی‌کراو.", true));
+  const closeConfirmation = document.querySelector("[data-close-confirmation]");
+  document.querySelector("[data-show-close]")?.addEventListener("click", () => { closeConfirmation.hidden = false; closeConfirmation.querySelector("[data-confirm-close]").focus(); });
+  document.querySelector("[data-cancel-close]")?.addEventListener("click", () => { closeConfirmation.hidden = true; });
+  document.querySelector("[data-confirm-close]")?.addEventListener("click", () => showState("ئەم ناساندنە بە هێواشی کۆتایی پێ هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت."));
+
+  const safetyConfirmation = document.querySelector("[data-safety-confirmation]");
+  const safetyCopy = document.querySelector("[data-safety-copy]");
+  let safetyChoice = "";
+  document.querySelectorAll("[data-safety-choice]").forEach((button) => button.addEventListener("click", () => { safetyChoice = button.dataset.safetyChoice; safetyCopy.textContent = `دڵنیایت دەتەوێت «${safetyChoice}» لەم prototype ـەدا تاقی بکەیتەوە؟`; safetyConfirmation.hidden = false; safetyConfirmation.querySelector("[data-confirm-safety]").focus(); }));
+  document.querySelector("[data-cancel-safety]")?.addEventListener("click", () => { safetyConfirmation.hidden = true; });
+  document.querySelector("[data-confirm-safety]")?.addEventListener("click", () => { safetyConfirmation.hidden = true; safetyMenu.open = false; const toast = document.querySelector("#requestDetailToast"); toast.textContent = `«${safetyChoice}» لەم prototype ـەدا تەنها پیشاندانی UI ـە.`; toast.classList.add("is-visible"); window.setTimeout(() => toast.classList.remove("is-visible"), 3600); });
+})();

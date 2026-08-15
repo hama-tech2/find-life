@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <meta name="description" content="داواکارییەکی ڕێکخراو بۆ ناساندنی هاوسەرگیریی جدی.">
+  <title>Find Your Life | ناردنی داواکاری</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  </svg>
+
+  <div class="request-shell">
+    <header class="detail-header">
+      <a class="detail-back" data-request-back href="detail.html" aria-label="گەڕانەوە بۆ ناساندن"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a>
+      <h1>ناردنی داواکاری</h1>
+      <span aria-hidden="true"></span>
+    </header>
+
+    <main class="request-page" data-request-page>
+      <section class="request-recipient" aria-labelledby="recipient-name">
+        <div><h2 id="recipient-name" data-request-name>سارا</h2><p><span data-request-age>27 ساڵ</span><span aria-hidden="true">•</span><span data-request-city>هەولێر</span></p></div>
+        <p class="request-occupation"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg><span data-request-occupation>مامۆستای قوتابخانە</span></p>
+      </section>
+
+      <p class="request-intro">ئەم داواکارییە بۆ ناساندنی هاوسەرگیریی جدییە. وەڵامەکانت کورتی و بەڕێز بنووسە.</p>
+
+      <form id="requestForm" class="request-form">
+        <div class="request-prompt"><label for="intention">بۆچی بەدوای هاوسەرگیرییەکی جدی دەگەڕێیت؟</label><textarea id="intention" name="intention" rows="2" maxlength="220" required aria-describedby="intention-count"></textarea><p id="intention-count" class="character-count" aria-live="polite">0 / 220</p></div>
+        <div class="request-prompt"><label for="value">کام بەها یان چاوەڕوانییە بۆت گرنگترە؟</label><textarea id="value" name="value" rows="2" maxlength="220" required aria-describedby="value-count"></textarea><p id="value-count" class="character-count" aria-live="polite">0 / 220</p></div>
+        <div class="request-prompt"><label for="question">چی دەتەوێت بە ڕێزەوە زیاتر لەبارەی ئەم کەسە بزانیت؟</label><textarea id="question" name="question" rows="2" maxlength="220" required aria-describedby="question-count"></textarea><p id="question-count" class="character-count" aria-live="polite">0 / 220</p></div>
+
+        <p class="request-privacy"><svg aria-hidden="true"><use href="#icon-shield"/></svg>ژمارەی مۆبایل، ناوی بەکارهێنەری تۆڕ، لینک و ناونیشانی ورد مەنووسە.</p>
+        <p id="requestWarning" class="request-warning" role="alert" hidden></p>
+        <button class="button button-primary" type="submit">ناردنی داواکاری</button>
+        <a class="button button-secondary request-back-secondary" data-request-back href="detail.html">گەڕانەوە</a>
+      </form>
+
+      <section id="requestSuccess" class="request-success" hidden aria-labelledby="success-title">
+        <span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2 id="success-title">داواکارییەکەت ئامادەیە.</h2>
+        <p>ئەمە تەنها پیشاندانی UI ـە؛ ناردنی ڕاستەقینە لە قۆناغی داهاتوودا پەیوەست دەکرێت.</p>
+        <a class="button button-secondary request-back-secondary" data-request-back href="detail.html">گەڕانەوە بۆ ناساندن</a>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

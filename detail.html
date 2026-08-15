@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <meta name="description" content="ناساندنی تایبەت بۆ هاوسەرگیریی جدی.">
+  <title>Find Your Life | ناساندن</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+    <symbol id="icon-school" viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 12v4.5c3 2 7 2 10 0V12"/></symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+  </svg>
+
+  <div class="detail-shell">
+    <header class="detail-header">
+      <a class="detail-back" href="discover.html" aria-label="گەڕانەوە بۆ دۆزینەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a>
+      <h1>ناساندن</h1>
+      <span aria-hidden="true"></span>
+    </header>
+
+    <main class="detail-page" data-detail-page>
+      <section class="person-summary" aria-labelledby="person-name">
+        <span class="detail-profile-mark" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span>
+        <div class="person-summary-main"><h2 id="person-name" data-person-name>سارا</h2><p><span data-person-age>27 ساڵ</span><span aria-hidden="true">•</span><span data-person-city>هەولێر</span></p></div>
+        <div class="person-meta"><span><svg aria-hidden="true"><use href="#icon-briefcase"/></svg><span data-person-occupation>مامۆستای قوتابخانە</span></span><span><svg aria-hidden="true"><use href="#icon-school"/></svg><span data-person-education>بەکالۆریۆس لە پەروەردە</span></span></div>
+        <div class="value-list detail-values" data-person-values></div>
+      </section>
+
+      <section class="detail-section" aria-labelledby="about-title">
+        <h2 id="about-title">دەربارەی من</h2>
+        <p data-person-about>کەسێکی ئارام و خێزاندوستم. خۆشم دەوێت ژیانێکی بەڕێز و هاوبەش بنیات بنێین.</p>
+      </section>
+
+      <section class="detail-section detail-looking" aria-labelledby="looking-title">
+        <h2 id="looking-title">چی دەگەڕێم</h2>
+        <dl class="looking-list"><div><dt>مەودای تەمەنی دڵخواز</dt><dd data-person-preferred-age>24–31 ساڵ</dd></div><div><dt>بەها گرنگەکان</dt><dd data-person-preferred-values>ڕاستگۆیی، ڕێز، ئارامی</dd></div><div><dt>چاوەڕوانی</dt><dd data-person-expectation>پەیوەندییەکی جدی بۆ دروستکردنی خێزانێکی بەهێز.</dd></div></dl>
+      </section>
+
+      <p class="protected-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>زانیاریی پەیوەندی و وێنەی ڕوو لەم قۆناغەدا تایبەت دەمێننەوە.</p>
+
+      <button class="button button-primary detail-request" type="button" data-request-link>ناردنی داواکاری</button>
+    </main>
+  </div>
+
+  <div id="toast" class="toast detail-toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

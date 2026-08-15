@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | هەژمار</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  </svg>
+  <div class="auth-shell" data-auth-page>
+    <header class="stage-header"><a class="detail-back" href="index.html" aria-label="گەڕانەوە بۆ سەرەتا"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>هەژمار</h1><p>prototype ـی داخراو</p></div><span aria-hidden="true"></span></header>
+    <main class="auth-page">
+      <section class="auth-modes" data-auth-modes>
+        <div class="auth-tabs" role="tablist" aria-label="جۆری هەژمار"><button type="button" role="tab" aria-selected="true" data-auth-mode="signup">دروستکردنی هەژمار</button><button type="button" role="tab" aria-selected="false" data-auth-mode="login">چوونەژوورەوە</button></div>
+
+        <form class="auth-form" data-signup-form novalidate>
+          <div class="auth-heading"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span><h2>دەستپێبکە بە هەژمارێکی تایبەتی</h2><p>ئەمە prototype ـێکی داخراوە؛ هیچ هەژمارێکی ڕاستەقینە دروست ناکرێت.</p></div>
+          <label>ئیمەیڵ<input name="signup-email" type="email" dir="ltr" inputmode="email" autocomplete="email" required placeholder="name@example.com"></label>
+          <label>وشەی نهێنی<input name="signup-password" type="password" dir="ltr" autocomplete="new-password" required minlength="8" placeholder="٨ پیت یان زیاتر"></label>
+          <label>بەرواری لەدایکبوون <span class="field-helper">تایبەتییە و هیچ کات لە ناساندنتدا نیشان نادرێت.</span><input name="dob" type="date" dir="ltr" required></label>
+          <label>کۆدی بانگهێشت<input name="invite" dir="ltr" required minlength="4" maxlength="40" autocomplete="off" placeholder="••••••"></label>
+          <label class="check-field"><input name="adult-confirmation" type="checkbox" required><span>18+ ـم و تەنها بۆ هاوسەرگیرییەکی جدی بەکاریدەهێنم.</span></label>
+          <p class="auth-error" data-signup-error role="alert" hidden></p>
+          <p class="auth-prototype-note"><svg aria-hidden="true"><use href="#icon-shield"/></svg>بەرواری لەدایکبوون تەنها بۆ پشکنینی سادەی تەمەن بەکاردێت؛ هیچ پشتڕاستکردنەوەی فەرمی یان ناسنامەیی نییە.</p>
+          <button class="button button-primary" type="submit">ناردنی داواکاریی هەژمار</button>
+        </form>
+
+        <form class="auth-form" data-login-form hidden novalidate>
+          <div class="auth-heading"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span><h2>چوونەژوورەوە</h2><p>چوونەژوورەوە لەم قۆناغەدا تەنها تاقیکردنەوەی prototype ـە.</p></div>
+          <label>ئیمەیڵ<input name="login-email" type="email" dir="ltr" inputmode="email" autocomplete="email" required placeholder="name@example.com"></label>
+          <label>وشەی نهێنی<input name="login-password" type="password" dir="ltr" autocomplete="current-password" required minlength="8" placeholder="وشەی نهێنی"></label>
+          <p class="auth-error" data-login-error role="alert" hidden></p>
+          <button class="button button-primary" type="submit">چوونەژوورەوە</button>
+        </form>
+      </section>
+
+      <section class="auth-state" data-auth-state="pending" hidden tabindex="-1"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>هەژمارەکەت نێردراوە بۆ پشکنین.</h2><p>لە closed beta ـدا هەژمارە نوێیەکان پێش دەستگەیشتن پشکنین دەکرێن. لەم prototype ـەدا هیچ پشکنین یان پەسەندکردنێکی ڕاستەقینە نییە.</p><button class="button button-primary" type="button" data-prototype-approve>Prototype: Approve account</button></section>
+      <section class="auth-state" data-auth-state="login-success" hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>چوونەژوورەوەی prototype تەواو بوو.</h2><p>هیچ پشتڕاستکردنەوەی هەژمار لە ڕاستیدا نەکراوە.</p><a class="button button-primary" href="discover.html">لە prototype ـەدا بچۆ بۆ دۆزینەوە</a></section>
+    </main>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>
