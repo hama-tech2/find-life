@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | قۆناغی خێزان</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7.5 3.5 5.1 5.9c-1.1 1.1-.5 4.3 2.7 7.5s6.4 3.8 7.5 2.7l2.4-2.4-3.4-3.4-2 1.2c-1.1-.5-2.1-1.5-2.6-2.6l1.2-2L7.5 3.5Z"/></symbol>
+    <symbol id="icon-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c.5-4.1 3-6.1 7-6.1s6.5 2 7 6.1"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  </svg>
+
+  <div class="handoff-shell" data-handoff-page>
+    <header class="stage-header">
+      <a class="detail-back" data-handoff-back href="conversation.html" aria-label="گەڕانەوە بۆ گفتوگۆ"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a>
+      <div class="stage-title"><h1>قۆناغی خێزان</h1><p>ناسینی هاوسەرگیری</p></div>
+      <details class="header-safety" data-handoff-safety>
+        <summary aria-label="سەلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary>
+        <div>
+          <button type="button" data-handoff-safety-choice="end">کۆتایی پێهێنانی ناسین</button>
+          <button type="button" data-handoff-safety-choice="block">بلۆککردن</button>
+          <button type="button" data-handoff-safety-choice="report">ڕاپۆرتکردن</button>
+        </div>
+      </details>
+    </header>
+
+    <main class="handoff-page">
+      <section class="handoff-state" data-handoff-state="setup">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-person"/></svg></span>
+        <h2>کێ دەتەوێت بەردەوامی ناسینەکە بکات؟</h2>
+        <p class="handoff-intro">کەسێک هەڵبژێرە بۆ بەردەوامکردنی ناسینی جدی لەگەڵ لای دووەم. دەتوانیت خۆت یان کەسێکی متمانەپێکراو هەڵبژێریت.</p>
+
+        <form data-handoff-form novalidate>
+          <fieldset class="role-selector">
+            <legend>ڕۆڵی کەسی پەیوەندی</legend>
+            <div class="role-options" role="group" aria-label="ڕۆڵی کەسی پەیوەندی">
+              <button type="button" aria-pressed="false" data-role="باوک">باوک</button>
+              <button type="button" aria-pressed="false" data-role="دایک">دایک</button>
+              <button type="button" aria-pressed="false" data-role="برا / خوشک">برا / خوشک</button>
+              <button type="button" aria-pressed="true" data-role="کەسی متمانەپێکراو">کەسی متمانەپێکراو</button>
+              <button type="button" aria-pressed="false" data-role="خۆم">خۆم</button>
+            </div>
+          </fieldset>
+
+          <div class="handoff-fields">
+            <label>ناو<input name="contact-name" required maxlength="60" autocomplete="name" placeholder="ناوی کەسی پەیوەندی"></label>
+            <label>پەیوەندی<input name="relationship" required maxlength="60" placeholder="وەک: هاوڕێ، مام، خۆم"></label>
+            <label>ژمارەی مۆبایل<input class="phone-field" name="phone" type="tel" inputmode="tel" dir="ltr" required maxlength="20" autocomplete="tel" placeholder="0750 123 4567"></label>
+          </div>
+
+          <p class="other-role" data-other-role>کەسی پەیوەندی ئەوان: <strong>برا</strong></p>
+          <p class="protected-notice handoff-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>هیچ ژمارەیەک پیشان نادرێت تا هەردوو لایەن گۆڕینی ژمارە پەسەند بکەن.</p>
+          <p class="handoff-error" data-handoff-error role="alert" hidden></p>
+          <button class="button button-primary" type="submit">پەسەندکردنی گۆڕینی ژمارە</button>
+          <button class="button button-secondary" type="button" data-show-end>کۆتایی پێبهێنە</button>
+        </form>
+      </section>
+
+      <section class="handoff-state handoff-waiting" data-handoff-state="waiting" hidden tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>لای تۆ گۆڕینی ژمارەی پەسەند کرد.</h2>
+        <p>ئێستا پێویستە لای دووەمیش بە خۆی پەسەند بکات. تا ئەو کاتە هیچ ژمارەیەک پیشان نادرێت.</p>
+        <button class="button button-secondary" type="button" data-simulate-mutual>لە prototype ـەدا پەسەندکردنی لای دووەم شبیه‌سازی بکە</button>
+      </section>
+
+      <section class="handoff-state handoff-reveal" data-handoff-state="reveal" hidden tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>هەردوو لایەن گۆڕینی ژمارەیان پەسەند کرد.</h2>
+        <p>زانیارییەکانی پەیوەندی لە هەمان کاتدا بۆ هەردوو لایەن کراونەتەوە.</p>
+        <div class="contact-reveal-grid">
+          <section class="contact-reveal-card"><h3>کەسی پەیوەندی تۆ</h3><dl><div><dt>ڕۆڵ</dt><dd data-own-role></dd></div><div><dt>ناو</dt><dd data-own-name></dd></div><div><dt>ژمارەی مۆبایل</dt><dd class="phone-value" dir="ltr" data-own-phone></dd></div></dl></section>
+          <section class="contact-reveal-card"><h3>کەسی پەیوەندی ئەوان</h3><dl><div><dt>ڕۆڵ</dt><dd data-other-contact-role></dd></div><div><dt>ناو</dt><dd data-other-contact-name></dd></div><div><dt>ژمارەی مۆبایل</dt><dd class="phone-value" dir="ltr" data-other-contact-phone></dd></div></dl></section>
+        </div>
+        <p class="protected-notice handoff-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>دوای بینینی زانیارییەکانی پەیوەندی، پلاتفۆرم ناتوانێت زانیارییە بڵاوکراوەکان بگەڕێنێتەوە.</p>
+        <button class="button button-primary" type="button" data-complete-handoff>تەواوکردنی گواستنەوە</button>
+      </section>
+
+      <section class="stage-quiet-state handoff-complete" data-handoff-state="complete" hidden tabindex="-1">
+        <span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>ناسینەکە چووە قۆناغی پەیوەندیی خێزان.</h2>
+        <p>بەردەوامی ناسین لە دەرەوەی پلاتفۆرم لە نێوان کەسانی هەڵبژێردراو دەبێت. گفتوگۆی چالاک بە خۆکار ناکرێتەوە.</p>
+        <a class="button button-secondary" href="discover.html">گەڕانەوە بۆ دۆزینەوە</a>
+      </section>
+
+      <section class="stage-quiet-state" data-handoff-state="closed" hidden tabindex="-1">
+        <span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>ئەم ناسینە کۆتایی هات.</h2>
+        <p>هیچ زانیارییەکی پەیوەندی نەکراوەتەوە.</p>
+        <a class="button button-secondary" href="discover.html">گەڕانەوە بۆ دۆزینەوە</a>
+      </section>
+
+      <section class="handoff-confirmation" data-handoff-confirmation hidden><p data-handoff-confirm-copy></p><div><button class="button button-primary" type="button" data-handoff-confirm>بەڵێ، بەردەوام بە</button><button class="button button-secondary" type="button" data-handoff-cancel>گەڕانەوە</button></div></section>
+      <p class="face-feedback" data-handoff-feedback role="status" hidden></p>
+    </main>
+  </div>
+  <script src="trusted-person.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | داواکارییەکان</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M12 21V7m0 5c-4 0-6-2.5-6-6 4 0 6 2.5 6 6Zm0-2c4 0 6-2.5 6-6-4 0-6 2.5-6 6Z"/><path d="M12 21 5 14m7 7 7-7"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/></symbol>
+    <symbol id="icon-requests" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 9h6m-6 4h6m-6 4h3"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/><circle cx="12" cy="12" r="10"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+  </svg>
+  <div class="app-shell">
+    <header class="app-header"><button class="header-action" type="button" data-placeholder="ڕێکخستنەکانی هەژمار لە قۆناغی داهاتوودا زیاد دەکرێت." aria-label="ڕێکخستن"><svg aria-hidden="true"><use href="#icon-user"/></svg></button><a class="brand" href="index.html" aria-label="Find Your Life"><span class="brand-mark"><svg><use href="#icon-leaf"/></svg></span><span class="brand-name">Find Your Life</span></a></header>
+    <main class="requests-page" data-inbox-page>
+      <h1>داواکارییەکان</h1>
+      <div class="inbox-tabs" role="tablist" aria-label="جۆری داواکاری"><button id="tab-received" role="tab" aria-selected="true" aria-controls="panel-received" type="button" data-inbox-tab="received">هاتووەکان</button><button id="tab-sent" role="tab" aria-selected="false" aria-controls="panel-sent" type="button" data-inbox-tab="sent">نێردراوەکان</button></div>
+      <section id="panel-received" class="inbox-panel" role="tabpanel" aria-labelledby="tab-received" data-inbox-panel="received">
+        <article class="request-card"><div class="request-card-head"><div><h2>ئەحمەد</h2><p>31 ساڵ <span aria-hidden="true">•</span> سلێمانی</p></div><span class="request-status status-new">نوێ</span></div><p class="request-card-occupation"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>گەندەڵازی مەدەنی</p><p class="request-card-summary">دەیەوێت بە ڕێز و گفتوگۆ ناساندنێکی جدی دەست پێ بکات.</p><div class="request-card-footer"><span>ئێستا</span><button class="request-card-button" type="button" data-open-request="r1">بینینی داواکاری</button></div></article>
+        <article class="request-card"><div class="request-card-head"><div><h2>ڕۆژین</h2><p>26 ساڵ <span aria-hidden="true">•</span> دهۆک</p></div><span class="request-status">چاوەڕێی بڕیارتە</span></div><p class="request-card-occupation"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>خوێندکاریی ماستەر</p><p class="request-card-summary">بەهای ڕێز و متمانەی بۆ ژیانێکی هاوبەش گرنگن.</p><div class="request-card-footer"><span>2 ڕۆژ پێش ئێستا</span><button class="request-card-button" type="button" data-open-request="r2">بینینی داواکاری</button></div></article>
+      </section>
+      <section id="panel-sent" class="inbox-panel" role="tabpanel" aria-labelledby="tab-sent" data-inbox-panel="sent" hidden>
+        <article class="request-card"><div class="request-card-head"><div><h2>سارا</h2><p>27 ساڵ <span aria-hidden="true">•</span> هەولێر</p></div><span class="request-status">چاوەڕێ</span></div><p class="request-card-occupation"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>مامۆستای قوتابخانە</p><p class="request-card-summary">داواکارییەکەت بە شێوەیەکی ڕێکخراو ئامادە کراوە.</p><div class="request-card-footer"><span>1 ڕۆژ پێش ئێستا</span><button class="request-card-button" type="button" data-open-request="s1">بینینی داواکاری</button></div></article>
+        <article class="request-card"><div class="request-card-head"><div><h2>ڕۆژین</h2><p>26 ساڵ <span aria-hidden="true">•</span> دهۆک</p></div><span class="request-status status-unavailable">بەردەست نییە</span></div><p class="request-card-occupation"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg>خوێندکاریی ماستەر</p><p class="request-card-summary">ئەم ناساندنە چیتر بەردەست نییە.</p><div class="request-card-footer"><span>6 ڕۆژ پێش ئێستا</span><button class="request-card-button" type="button" data-open-request="s2">بینینی داواکاری</button></div></article>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="ناڤیگەیشنی سەرەکی"><a class="nav-item" href="discover.html"><svg aria-hidden="true"><use href="#icon-compass"/></svg><span>دۆزینەوە</span></a><a class="nav-item is-active" href="requests.html" aria-current="page"><svg aria-hidden="true"><use href="#icon-requests"/></svg><span>داواکارییەکان</span></a><button class="nav-item" type="button" data-placeholder="ناساندنەکەت لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-user"/></svg><span>ناساندنەکەم</span></button><button class="nav-item" type="button" data-placeholder="پڕۆفایل لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-profile"/></svg><span>هەژمار</span></button></nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+  <script src="requests.js"></script>
+</body>
+</html>

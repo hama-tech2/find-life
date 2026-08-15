@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | ڕێکخستنی سەرەتایی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+  </svg>
+  <div class="onboarding-shell" data-onboarding-page>
+    <header class="stage-header"><a class="detail-back" href="auth.html?mode=signup" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>ڕێکخستنی سەرەتایی</h1><p>هەنگاوی ١ لە ١</p></div><span aria-hidden="true"></span></header>
+    <main class="onboarding-page">
+      <section class="onboarding-intro"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>تەنها چەند ڕێکخستنێکی سادە</h2><p>ئەمە ناساندنی گشتیی تۆ نییە؛ تەنها بۆ دەستپێکردنی دۆزینەوەی گونجاوە.</p></section>
+      <form class="onboarding-form" data-onboarding-form novalidate>
+        <fieldset><legend>من</legend><div class="choice-row" role="group" aria-label="من"><button type="button" data-self="man" aria-pressed="false">پیاوم</button><button type="button" data-self="woman" aria-pressed="false">ژنم</button></div></fieldset>
+        <fieldset><legend>بەدوای</legend><div class="choice-row" role="group" aria-label="بەدوای"><button type="button" data-seeking="woman" aria-pressed="false">ژن دەگەڕێم</button><button type="button" data-seeking="man" aria-pressed="false">پیاو دەگەڕێم</button></div></fieldset>
+        <label>شار / پارێزگا<select name="city" required><option value="">هەڵبژێرە</option><option value="هەولێر">هەولێر</option><option value="سلێمانی">سلێمانی</option><option value="دهۆک">دهۆک</option><option value="هەڵەبجە">هەڵەبجە</option><option value="کەرکووک">کەرکووک</option></select></label>
+        <fieldset><legend>مەودای تەمەنی دڵخواز</legend><div class="age-range"><label>لە<input name="min-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="18"></label><label>تا<input name="max-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="45"></label></div></fieldset>
+        <label class="check-field"><input name="serious-intention" type="checkbox" required><span>تەنها بۆ هاوسەرگیرییەکی جدی</span></label>
+        <p class="auth-error" data-onboarding-error role="alert" hidden></p>
+        <button class="button button-primary" type="submit">بەردەوامبوون</button>
+      </form>
+    </main>
+  </div>
+  <script src="onboarding.js"></script>
+</body>
+</html>

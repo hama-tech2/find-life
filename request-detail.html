@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | داواکاری</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+  </svg>
+  <div class="request-detail-shell">
+    <header class="detail-header"><a class="detail-back" data-inbox-back href="requests.html?tab=received" aria-label="گەڕانەوە بۆ داواکارییەکان"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><h1>داواکاری</h1><span aria-hidden="true"></span></header>
+    <main class="request-detail-page" data-request-detail>
+      <section class="request-detail-summary" aria-labelledby="request-person-name"><div><h2 id="request-person-name" data-detail-name>ئەحمەد</h2><p><span data-detail-age>31 ساڵ</span><span aria-hidden="true">•</span><span data-detail-city>سلێمانی</span></p></div><p><svg aria-hidden="true"><use href="#icon-briefcase"/></svg><span data-detail-occupation>گەندەڵازی مەدەنی</span></p></section>
+      <p class="request-detail-status" data-detail-status></p>
+      <section class="request-answers" aria-labelledby="answers-title"><h2 id="answers-title">وەڵامەکانی داواکاری</h2><div><h3>مەبەستی هاوسەرگیری</h3><p data-answer-intention></p></div><div><h3>بەها یان چاوەڕوانی گرنگ</h3><p data-answer-value></p></div><div><h3>چی دەتەوێت زیاتر بزانیت</h3><p data-answer-question></p></div></section>
+      <p class="protected-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>زانیاریی پەیوەندی لەم قۆناغەدا تایبەت دەمێننەوە.</p>
+      <div class="received-actions" data-received-actions><button class="button button-primary" type="button" data-accept-request>پەسەندکردن</button><button class="button button-secondary" type="button" data-show-close>کۆتایی پێهێنان</button></div>
+      <section class="quiet-confirmation" data-close-confirmation hidden><p>دڵنیایت دەتەوێت ئەم ناساندنە بە هێواشی کۆتایی پێ بهێنیت؟ هۆکارەکە بۆ لای دووەم نیشان نادرێت.</p><div><button class="button button-primary" type="button" data-confirm-close>بەڵێ، کۆتایی پێبهێنە</button><button class="button button-secondary" type="button" data-cancel-close>گەڕانەوە</button></div></section>
+      <section class="prototype-action-state" data-action-state hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-action-title></h2><p data-action-copy></p><a class="button button-primary" data-guided-continue href="guided.html" hidden>بەردەوامبوون بۆ ناسین</a><a class="button button-secondary" data-inbox-back href="requests.html?tab=received">گەڕانەوە بۆ داواکارییەکان</a></section>
+      <details class="safety-menu" data-safety-menu><summary><svg aria-hidden="true"><use href="#icon-more"/></svg>سلامەتی</summary><div class="safety-options"><button type="button" data-safety-choice="بلۆککردن">بلۆککردن</button><button type="button" data-safety-choice="ڕاپۆرتکردن">ڕاپۆرتکردن</button></div><div class="safety-confirmation" data-safety-confirmation hidden><p data-safety-copy></p><div><button type="button" class="button button-primary" data-confirm-safety>بەڵێ، بەردەوام بە</button><button type="button" class="button button-secondary" data-cancel-safety>گەڕانەوە</button></div></div></details>
+    </main>
+  </div>
+  <div id="requestDetailToast" class="toast detail-toast" role="status" aria-live="polite"></div>
+  <script src="requests.js"></script>
+</body>
+</html>
