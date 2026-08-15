@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | ناساندنەکەم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M12 21V7m0 5c-4 0-6-2.5-6-6 4 0 6 2.5 6 6Zm0-2c4 0 6-2.5 6-6-4 0 6 2.5 6 6Z"/><path d="M12 21 5 14m7 7 7-7"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/></symbol>
+    <symbol id="icon-requests" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 9h6m-6 4h6m-6 4h3"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/><circle cx="12" cy="12" r="10"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+  </svg>
+  <div class="app-shell" data-my-introduction-page>
+    <header class="app-header"><button class="header-action" type="button" data-placeholder="ڕێکخستنەکانی هەژمار لە قۆناغی داهاتوودا زیاد دەکرێت." aria-label="ڕێکخستن"><svg aria-hidden="true"><use href="#icon-user"/></svg></button><a class="brand" href="index.html" aria-label="Find Your Life"><span class="brand-mark"><svg><use href="#icon-leaf"/></svg></span><span class="brand-name">Find Your Life</span></a></header>
+    <main class="my-introduction-page">
+      <section class="page-title-row"><div><p class="eyebrow">ناسینەوەی بەڕێز</p><h1>ناساندنەکەم</h1></div></section>
+
+      <section class="intro-empty-state" data-intro-empty>
+        <span class="intro-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span>
+        <h2>ناساندنت هێشتا دروست نەکراوە</h2>
+        <p>کورتەیەک دەربارەی خۆت و ئەوەی بۆ هاوسەرگیری دەگەڕێیت بنووسە.</p>
+        <a class="button button-primary" href="create-introduction.html?mode=create&amp;step=1">دروستکردنی ناساندن</a>
+      </section>
+
+      <section class="my-introduction-state" data-intro-published hidden>
+        <div class="intro-status-row"><span class="intro-status" data-intro-status></span><span class="prototype-label">prototype</span></div>
+        <article class="my-introduction-summary">
+          <div class="card-heading"><div><h2 data-intro-name></h2><p><span data-intro-age></span> <span aria-hidden="true">•</span> <span data-intro-city></span></p></div><span class="private-profile" aria-label="پڕۆفایلی پارێزراو"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span></div>
+          <p class="meta-line"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg><span data-intro-occupation></span></p>
+          <div class="value-list" data-intro-values></div>
+          <p class="intention" data-intro-about></p>
+        </article>
+        <p class="intro-prototype-note"><svg aria-hidden="true"><use href="#icon-shield"/></svg>ئەمە تەنها دۆخی frontend ـی prototype ـە؛ لە ڕاستیدا هیچ شتێک بڵاونەکراوەتەوە.</p>
+        <div class="intro-actions">
+          <a class="button button-primary" data-intro-edit href="create-introduction.html?mode=edit&amp;step=1">دەستکاری کردن</a>
+          <a class="button button-secondary" data-intro-preview href="create-introduction.html?mode=edit&amp;step=3">بینینی پێشبینین</a>
+          <button class="text-action" type="button" data-intro-toggle></button>
+        </div>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="ناڤیگەیشنی سەرەکی"><a class="nav-item" href="discover.html"><svg aria-hidden="true"><use href="#icon-compass"/></svg><span>دۆزینەوە</span></a><a class="nav-item" href="requests.html"><svg aria-hidden="true"><use href="#icon-requests"/></svg><span>داواکارییەکان</span></a><a class="nav-item is-active" href="my-introduction.html" aria-current="page"><svg aria-hidden="true"><use href="#icon-user"/></svg><span>ناساندنەکەم</span></a><button class="nav-item" type="button" data-placeholder="پڕۆفایل لە قۆناغی داهاتوودا زیاد دەکرێت."><svg aria-hidden="true"><use href="#icon-profile"/></svg><span>هەژمار</span></button></nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+  <script src="introduction.js"></script>
+  <script src="my-introduction.js"></script>
+</body>
+</html>
