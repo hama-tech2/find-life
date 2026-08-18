@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | هەژمار</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M12 21V7m0 5c-4 0-6-2.5-6-6 4 0 6 2.5 6 6Zm0-2c4 0 6-2.5 6-6-4 0 6 2.5 6 6Z"/><path d="M12 21 5 14m7 7 7-7"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4 4-2Z"/></symbol>
+    <symbol id="icon-requests" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 9h6m-6 4h6m-6 4h3"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/><circle cx="12" cy="12" r="10"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 13.5v-3l-2-.7-.7-1.7.9-1.9-2.1-2.1-1.9.9-1.7-.7-.7-2h-3l-.7 2-1.7.7-1.9-.9-2.1 2.1.9 1.9-.7 1.7-2 .7v3l2 .7.7 1.7-.9 1.9 2.1 2.1 1.9-.9 1.7.7.7 2h3l.7-2 1.7-.7 1.9.9 2.1-2.1-.9-1.9.7-1.7 2-.7Z"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="m14 7-5 5 5 5"/></symbol>
+  </svg>
+  <div class="app-shell" data-profile-page>
+    <header class="app-header"><a class="header-action" href="settings.html" aria-label="ڕێکخستن"><svg aria-hidden="true"><use href="#icon-settings"/></svg></a><a class="brand" href="index.html" aria-label="Find Your Life"><span class="brand-mark"><svg><use href="#icon-leaf"/></svg></span><span class="brand-name">Find Your Life</span></a></header>
+    <main class="profile-page">
+      <section class="page-title-row"><div><p class="eyebrow">هەژماری تایبەتی</p><h1>هەژمار</h1></div></section>
+      <section class="profile-account-card" aria-labelledby="profile-name">
+        <span class="profile-private-icon" aria-hidden="true"><svg><use href="#icon-profile"/></svg></span>
+        <div><h2 id="profile-name" data-profile-name>ئاڤین</h2><p><span>هەژماری ١٨+</span><span aria-hidden="true">•</span><span data-profile-city>هەولێر</span></p><span class="profile-beta-status">پەسەندکراوی closed-beta prototype</span></div>
+      </section>
+      <nav class="profile-menu" aria-label="هەڵبژاردەکانی هەژمار">
+        <a href="my-introduction.html"><span class="profile-row-icon"><svg aria-hidden="true"><use href="#icon-user"/></svg></span><span><strong>ناساندنەکەم</strong><small>بینین و دەستکاری کردنی ناساندن</small></span><svg class="row-chevron" aria-hidden="true"><use href="#icon-chevron-left"/></svg></a>
+        <a href="settings.html"><span class="profile-row-icon"><svg aria-hidden="true"><use href="#icon-settings"/></svg></span><span><strong>ڕێکخستن</strong><small>هەژمار و زانیارییە تایبەتییەکان</small></span><svg class="row-chevron" aria-hidden="true"><use href="#icon-chevron-left"/></svg></a>
+        <a href="settings.html#privacy"><span class="profile-row-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><span><strong>پاراستن و یارمەتی</strong><small>زانینی جیاوازیی زانیاریی گشتی و تایبەت</small></span><svg class="row-chevron" aria-hidden="true"><use href="#icon-chevron-left"/></svg></a>
+      </nav>
+    </main>
+    <nav class="bottom-nav" aria-label="ناڤیگەیشنی سەرەکی"><a class="nav-item" href="discover.html"><svg aria-hidden="true"><use href="#icon-compass"/></svg><span>دۆزینەوە</span></a><a class="nav-item" href="requests.html"><svg aria-hidden="true"><use href="#icon-requests"/></svg><span>داواکارییەکان</span></a><a class="nav-item" href="my-introduction.html"><svg aria-hidden="true"><use href="#icon-user"/></svg><span>ناساندنەکەم</span></a><a class="nav-item is-active" href="profile.html" aria-current="page"><svg aria-hidden="true"><use href="#icon-profile"/></svg><span>هەژمار</span></a></nav>
+  </div>
+  <script src="introduction.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

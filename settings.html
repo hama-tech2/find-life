@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | ڕێکخستن</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-9h.01"/></symbol>
+    <symbol id="icon-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5m3-3 4-4-4-4m4 4H9"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 13H7L6 7m4 4v5m4-5v5"/></symbol>
+  </svg>
+  <div class="settings-shell" data-settings-page>
+    <header class="stage-header"><a class="detail-back" href="profile.html" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>ڕێکخستن</h1><p>هەژماری prototype</p></div><span aria-hidden="true"></span></header>
+    <main class="settings-page">
+      <div data-settings-content>
+        <section class="settings-section" aria-labelledby="account-settings-title">
+          <h2 id="account-settings-title">هەژمار</h2>
+          <div class="settings-group">
+            <dl class="account-information">
+              <div><dt>ناوی پیشاندان</dt><dd>ئاڤین</dd></div>
+              <div><dt>ئیمەیڵی prototype</dt><dd class="ltr-value">prototype@findyourlife.test</dd></div>
+              <div><dt>دۆخی هەژمار</dt><dd>پەسەندکراوی closed-beta prototype</dd></div>
+            </dl>
+            <p class="settings-helper"><svg aria-hidden="true"><use href="#icon-info"/></svg>هیچ هەژمار یان پشتڕاستکردنەوەی ڕاستەقینە لەم frontend ـەدا نییە.</p>
+          </div>
+        </section>
+
+        <section id="privacy" class="settings-section privacy-settings" aria-labelledby="privacy-settings-title">
+          <h2 id="privacy-settings-title">تایبەتمەندی</h2>
+          <div class="settings-group">
+            <p class="settings-intro">تەنها زانیاریی ناساندنی گشتی بۆ کەسانی تر پیشان دەدرێت. زانیاریی هەژمار تایبەت دەمێنێتەوە.</p>
+            <div class="privacy-summary">
+              <section><h3>زانیاریی گشتیی ناساندن</h3><ul><li>ناوی پیشاندان</li><li>تەمەن بەپێی یاسای پیشاندان</li><li>شار و پیشە/خوێندنی گشتی</li><li>دەقی ناساندن و بەها هەڵبژێردراوەکان</li></ul></section>
+              <section><h3>زانیاریی تایبەتی هەژمار</h3><ul><li>بەرواری لەدایکبوون</li><li>ئیمەیڵ</li><li>ژمارە یان زانیاریی پەیوەندیی داهاتوو</li><li>وێنەی کاتی و تایبەتی ڕوو</li></ul></section>
+            </div>
+          </div>
+        </section>
+
+        <section id="safety" class="settings-section" aria-labelledby="safety-settings-title">
+          <h2 id="safety-settings-title">سەلامەتی</h2>
+          <div class="settings-group settings-safety"><span class="settings-row-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><div><h3>بلۆک و ڕاپۆرت</h3><p>ئەم هەڵبژاردانە لە لیستی Safety ـی ناساندن و گفتوگۆدا بەردەستن. لێرە هیچ کاری moderation ـی ڕاستەقینە ئەنجام نادرێت.</p></div></div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="account-actions-title">
+          <h2 id="account-actions-title">کردارەکانی هەژمار</h2>
+          <div class="settings-group account-actions">
+            <button type="button" data-account-action="signout"><span class="settings-row-icon"><svg aria-hidden="true"><use href="#icon-logout"/></svg></span><span><strong>چوونەدەرەوە</strong><small>گەڕانەوە بۆ پەڕەی چوونەژوورەوە</small></span></button>
+            <button class="settings-delete-action" type="button" data-account-action="delete"><span class="settings-row-icon"><svg aria-hidden="true"><use href="#icon-trash"/></svg></span><span><strong>سڕینەوەی هەژمار</strong><small>زانیاری دەربارەی سڕینەوەی داهاتوو</small></span></button>
+          </div>
+        </section>
+      </div>
+
+      <section class="account-confirmation" data-account-confirmation role="region" aria-live="polite" hidden>
+        <span class="intro-state-icon" aria-hidden="true"><svg><use href="#icon-info"/></svg></span>
+        <h2 tabindex="-1" data-confirmation-title></h2>
+        <p data-confirmation-copy></p>
+        <div class="account-confirmation-actions" data-confirmation-actions>
+          <button class="button button-secondary" type="button" data-confirmation-cancel>گەڕانەوە</button>
+          <button class="button" type="button" data-confirmation-continue></button>
+        </div>
+        <div class="account-prototype-result" data-prototype-result hidden>
+          <p>هیچ هەژمار یان داتایەک نەسڕاوەتەوە؛ ئەمە تەنها نیشاندانی ڕەفتاری frontend ـی prototype ـە.</p>
+          <button class="button button-primary" type="button" data-result-close>تێگەیشتم</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="settings.js"></script>
+</body>
+</html>
