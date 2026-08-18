@@ -9,6 +9,7 @@
   const isConditional = isPostFace && params.get("conditional") === "1";
   const selfConditional = isConditional && params.get("selfConditional") === "1";
   const isClosed = isConversation && params.has("closed");
+  const isInactive = isConversation && (params.get("inactive") === "1" || params.get("expired") === "1");
   const page = guidedPage || conversationPage;
   if (!page) return;
 
@@ -51,6 +52,7 @@
     postFaceNotice?.setAttribute("hidden", "");
     postFaceEnd?.setAttribute("hidden", "");
     document.querySelector("[data-stage-safety]")?.setAttribute("hidden", "");
+    document.querySelector("[data-stage-back]")?.setAttribute("hidden", "");
   };
   const showQuietState = (title, copy, closePostFace = false) => {
     hideActiveFlow();
@@ -86,7 +88,7 @@
   document.querySelector("[data-stage-cancel]")?.addEventListener("click", () => { confirmation.hidden = true; });
   document.querySelector("[data-stage-confirm]")?.addEventListener("click", () => {
     if (safetyChoice === "end") {
-      showQuietState("ئەم ناساندنە بە هێواشی کۆتایی پێ هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت.", isPostFace);
+      showQuietState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت.", isPostFace);
     } else {
       showQuietState("بلۆککردن لەم prototype ـەدا تەنها پیشاندانییە.", "هیچ کارێکی ڕاستەقینە لەسەر هەژمارەکان جێبەجێ نەکرا.", isPostFace);
     }
@@ -128,7 +130,15 @@
   }
 
   if (isClosed) {
-    showQuietState("ئەم ناساندنە بە هێواشی کۆتایی پێ هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو و گفتوگۆ لابرا.", true);
+    showQuietState("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو و گفتوگۆ لابرا.", true);
+    return;
+  }
+
+  if (isInactive) {
+    const quietBack = document.querySelector("[data-stage-quiet-back]");
+    quietBack.href = "requests.html?tab=received";
+    quietBack.textContent = "گەڕانەوە بۆ داواکارییەکان";
+    showQuietState("ئەم ناساندنە چیتر چالاک نییە.", "ئەمە دۆخێکی گۆڕاوەی prototype ـە و هیچ کەسێک تاوانبار ناکرێت.");
     return;
   }
 

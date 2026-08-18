@@ -1,9 +1,11 @@
 (() => {
   const requestData = {
-    r1: { tab: "received", direction: "received", name: "ئەحمەد", age: "31 ساڵ", city: "سلێمانی", occupation: "گەندەڵازی مەدەنی", status: "هاتووە • چاوەڕێی بڕیارتە", intention: "بۆ ژیانێکی هاوبەش و هاوسەرگیرییەکی جدی دەگەڕێم. دەمەوێت هەموو هەنگاوێک بە ڕێز و گفتوگۆ بێت.", value: "ڕاستگۆیی، ڕێز و پشتیوانیی یەکتر بۆم گرنگترینن.", question: "دەمەوێت زیاتر لە شێوازی گفتوگۆ و بیرۆکەت بۆ ژیانی خێزانی بزانم." },
-    r2: { tab: "received", direction: "received", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "هاتووە • چاوەڕێی بڕیارتە", intention: "ئامادەم بۆ ناساندنێکی ڕێک و بە مەبەستی دروستکردنی خێزانم.", value: "متمانە، ئارامی و ڕێزکردن لە خێزان بۆم گرنگن.", question: "دەمەوێت بزانم چۆن سەیری هاوبەشبوون و بەرپرسیارێتی لە ماڵدا دەکەیت." },
-    s1: { tab: "sent", direction: "sent", name: "سارا", age: "27 ساڵ", city: "هەولێر", occupation: "مامۆستای قوتابخانە", status: "چاوەڕێی وەڵام", intention: "بۆ ژیانێکی هاوبەش و بەڕێز دەگەڕێم، لەسەر بنەمای ڕێز و گفتوگۆ.", value: "ڕاستگۆیی و ئارامی بۆم گرنگن.", question: "دەمەوێت زیاتر لە شێوازی ژیانت و بیرۆکەت بۆ خێزان بزانم." },
-    s2: { tab: "sent", direction: "sent", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "ئەم ناساندنە چیتر بەردەست نییە.", intention: "بۆ ناساندنێکی جدی و بەرپرسیارانە دەگەڕێم.", value: "متمانە و ڕێز بۆم گرنگن.", question: "دەمەوێت زیاتر لە بەهاکانی خێزانی بزانم." },
+    r1: { tab: "received", direction: "received", lifecycle: "new", name: "ئەحمەد", age: "31 ساڵ", city: "سلێمانی", occupation: "گەندەڵازی مەدەنی", status: "هاتووە • نوێ", intention: "بۆ ژیانێکی هاوبەش و هاوسەرگیرییەکی جدی دەگەڕێم. دەمەوێت هەموو هەنگاوێک بە ڕێز و گفتوگۆ بێت.", value: "ڕاستگۆیی، ڕێز و پشتیوانیی یەکتر بۆم گرنگترینن.", question: "دەمەوێت زیاتر لە شێوازی گفتوگۆ و بیرۆکەت بۆ ژیانی خێزانی بزانم." },
+    r2: { tab: "received", direction: "received", lifecycle: "waiting", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "هاتووە • چاوەڕێی بڕیارتە", intention: "ئامادەم بۆ ناساندنێکی ڕێک و بە مەبەستی دروستکردنی خێزانم.", value: "متمانە، ئارامی و ڕێزکردن لە خێزان بۆم گرنگن.", question: "دەمەوێت بزانم چۆن سەیری هاوبەشبوون و بەرپرسیارێتی لە ماڵدا دەکەیت." },
+    r3: { tab: "received", direction: "received", lifecycle: "accepted", name: "دیلان", age: "30 ساڵ", city: "هەولێر", occupation: "کارمەندی فەرمی", status: "پەسەندکراوە • ناسینەکە چالاکە", intention: "بۆ هاوسەرگیرییەکی ئارام و بەرپرسیارانە دەگەڕێم.", value: "ڕاستگۆیی، ڕێکخستن و متمانە بۆم گرنگن.", question: "دەمەوێت لە پلانت بۆ کار و ژیانی خێزانی تێبگەم." },
+    s1: { tab: "sent", direction: "sent", lifecycle: "waiting", name: "سارا", age: "27 ساڵ", city: "هەولێر", occupation: "مامۆستای قوتابخانە", status: "چاوەڕێی وەڵام", intention: "بۆ ژیانێکی هاوبەش و بەڕێز دەگەڕێم، لەسەر بنەمای ڕێز و گفتوگۆ.", value: "ڕاستگۆیی و ئارامی بۆم گرنگن.", question: "دەمەوێت زیاتر لە شێوازی ژیانت و بیرۆکەت بۆ خێزان بزانم." },
+    s2: { tab: "sent", direction: "sent", lifecycle: "expired", name: "ڕۆژین", age: "26 ساڵ", city: "دهۆک", occupation: "خوێندکاریی ماستەر", status: "ئەم ناساندنە چیتر چالاک نییە.", intention: "بۆ ناساندنێکی جدی و بەرپرسیارانە دەگەڕێم.", value: "متمانە و ڕێز بۆم گرنگن.", question: "دەمەوێت زیاتر لە بەهاکانی خێزانی بزانم." },
+    s3: { tab: "sent", direction: "sent", lifecycle: "unavailable", name: "ئاوات", age: "32 ساڵ", city: "سلێمانی", occupation: "پەرستار", status: "ئەم ناساندنە چیتر بەردەست نییە.", intention: "دەمەوێت ناساندنێکی جدی و بە ئارامی هەبێت.", value: "ڕێز و بەرپرسیارێتی بۆم گرنگن.", question: "دەمەوێت لە چاوەڕوانییەکانت بۆ ژیانی هاوبەش بزانم." },
   };
   const setText = (selector, text) => { const element = document.querySelector(selector); if (element) element.textContent = text; };
 
@@ -11,12 +13,24 @@
   if (inbox) {
     const tabs = [...document.querySelectorAll("[data-inbox-tab]")];
     const panels = [...document.querySelectorAll("[data-inbox-panel]")];
-    const requestedTab = new URLSearchParams(window.location.search).get("tab");
+    const inboxParams = new URLSearchParams(window.location.search);
+    const requestedTab = inboxParams.get("tab");
+    const forcedEmpty = inboxParams.get("empty");
+    if (forcedEmpty === "received" || forcedEmpty === "sent") {
+      document.querySelectorAll(`[data-inbox-panel="${forcedEmpty}"] [data-request-item]`).forEach((item) => { item.hidden = true; });
+    }
+    const syncEmptyState = (tab) => {
+      const panel = document.querySelector(`[data-inbox-panel="${tab}"]`);
+      const emptyState = document.querySelector(`[data-inbox-empty="${tab}"]`);
+      const hasItems = [...panel.querySelectorAll("[data-request-item]")].some((item) => !item.hidden);
+      emptyState.hidden = hasItems;
+    };
     const setTab = (tab, updateUrl = false) => {
       const activeTab = tab === "sent" ? "sent" : "received";
       tabs.forEach((button) => button.setAttribute("aria-selected", String(button.dataset.inboxTab === activeTab)));
       panels.forEach((panel) => { panel.hidden = panel.dataset.inboxPanel !== activeTab; });
-      if (updateUrl) window.history.replaceState(null, "", `requests.html?tab=${activeTab}`);
+      syncEmptyState(activeTab);
+      if (updateUrl) window.history.replaceState(null, "", `requests.html?tab=${activeTab}${forcedEmpty ? `&empty=${forcedEmpty}` : ""}`);
     };
     setTab(requestedTab);
     tabs.forEach((button) => button.addEventListener("click", () => setTab(button.dataset.inboxTab, true)));
@@ -45,11 +59,16 @@
     actionState.hidden = false;
     actionState.focus();
   };
+  if (request.lifecycle === "accepted") {
+    showState("داواکارییەکە پەسەند کراوە.", "ناسینەکە چالاکە و دەتوانیت بەردەوام بیت.", true);
+  } else if (request.lifecycle === "expired" || request.lifecycle === "unavailable") {
+    showState("ئەم ناساندنە چیتر چالاک نییە.", "بێ فشار دەتوانیت بگەڕێیتەوە بۆ داواکارییەکان.");
+  }
   document.querySelector("[data-accept-request]")?.addEventListener("click", () => showState("داواکارییەکە لەم prototype ـەدا پەسەند کرا.", "دەتوانیت لەم prototype ـەدا بچیتە قۆناغی ناسینی ڕێنمایی‌کراو.", true));
   const closeConfirmation = document.querySelector("[data-close-confirmation]");
   document.querySelector("[data-show-close]")?.addEventListener("click", () => { closeConfirmation.hidden = false; closeConfirmation.querySelector("[data-confirm-close]").focus(); });
   document.querySelector("[data-cancel-close]")?.addEventListener("click", () => { closeConfirmation.hidden = true; });
-  document.querySelector("[data-confirm-close]")?.addEventListener("click", () => showState("ئەم ناساندنە بە هێواشی کۆتایی پێ هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت."));
+  document.querySelector("[data-confirm-close]")?.addEventListener("click", () => showState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت."));
 
   const safetyConfirmation = document.querySelector("[data-safety-confirmation]");
   const safetyCopy = document.querySelector("[data-safety-copy]");

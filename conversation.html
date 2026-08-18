@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
   <title>Find Your Life | گفتوگۆی سنووردار</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=12">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -18,7 +18,7 @@
   <div class="stage-shell">
     <header class="stage-header"><a class="detail-back" data-stage-back href="guided.html?person=ئەحمەد&request=r1" aria-label="گەڕانەوە بۆ قۆناغی ناسین"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1 data-stage-name>ئەحمەد</h1><p>قۆناغی ناسین</p></div><details class="header-safety" data-stage-safety><summary aria-label="سلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary><div><button type="button" data-stage-safety-choice="end">کۆتایی پێهێنانی ناسین</button><button type="button" data-stage-safety-choice="block">بلۆککردن</button><button type="button" data-stage-safety-choice="report">ڕاپۆرتکردن</button></div></details></header>
     <main class="conversation-page" data-conversation-page>
-      <div class="conversation-status" aria-label="دۆخی گفتوگۆ"><span><strong data-message-remaining>8</strong> نامە ماوە</span><span><strong>5</strong> ڕۆژ ماوە</span></div>
+      <div class="conversation-status" aria-label="دۆخی گفتوگۆی prototype"><span><strong data-message-remaining>8</strong> نامە ماوە</span><span><strong>5</strong> ڕۆژ ماوە <small>prototype</small></span></div>
       <section class="post-face-notice" data-post-face-notice hidden><p data-post-face-notice-copy></p><p class="post-face-compose-prompt" data-condition-compose-prompt hidden>مەرج یان نیگەرانییەکەت بە ڕێزەوە بنووسە…</p></section>
       <section class="message-list" data-message-list aria-label="نامەکان"><p class="message message-other">چاوەڕوانییەکەت بۆ ژیانێکی هاوبەش چییە؟</p><p class="message message-self">بۆم گرنگە یەکتر بە ڕێز گوێ بگرین و بە هاوبەشی بڕیار بدەین.</p><p class="message message-other">لە خێزانەوە چی بەهایت پێ گرنگە؟</p><p class="message message-self">متمانە، ئارامی و پشتیوانیی یەکتر.</p><p class="message message-other">چۆن کار و ژیانی خێزانی بە هاوسەنگی دەبینیت؟</p><p class="message message-self">بە گفتوگۆ و پلانکردنی هاوبەش، بەبێ فشار.</p></section>
       <form id="conversationForm" class="conversation-composer"><label class="sr-only" for="conversationMessage">نامەیەکی ڕێزدار بنووسە</label><textarea id="conversationMessage" rows="2" maxlength="300" placeholder="نامەیەکی ڕێزدار بنووسە…" required></textarea><button type="submit" aria-label="ناردن"><svg aria-hidden="true"><use href="#icon-send"/></svg><span>ناردن</span></button></form>
@@ -26,10 +26,10 @@
       <section class="face-request"><p>هیچ ڕووێک نیشان نادرێت، مەگەر هەردوو لایەن ڕازی بن.</p><button class="button button-secondary" type="button" data-face-request>داواکاری پیشاندانی ڕوو</button></section>
       <button class="button button-danger post-face-end" type="button" data-post-face-end hidden>کۆتایی پێهێنان</button>
       <section class="stage-confirmation" data-stage-confirmation hidden><p data-stage-confirm-copy></p><div><button class="button button-primary" type="button" data-stage-confirm>بەڵێ، بەردەوام بە</button><button class="button button-secondary" type="button" data-stage-cancel>گەڕانەوە</button></div></section>
-      <section class="stage-quiet-state" data-stage-quiet-state hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-stage-quiet-title></h2><p data-stage-quiet-copy></p><a class="button button-secondary" data-stage-quiet-back href="discover.html">گەڕانەوە بۆ دۆزینەوە</a></section>
+      <section class="stage-quiet-state quiet-closure-state" data-stage-quiet-state hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-stage-quiet-title></h2><p data-stage-quiet-copy></p><a class="button button-secondary" data-stage-quiet-back href="discover.html">گەڕانەوە بۆ دۆزینەوە</a></section>
     </main>
   </div>
   <div id="conversationToast" class="toast detail-toast" role="status" aria-live="polite"></div>
-  <script src="conversation.js"></script>
+  <script src="conversation.js?v=12.1"></script>
 </body>
 </html>

@@ -140,7 +140,7 @@
   };
   const simulateOtherDecision = (otherDecision) => {
     if (otherDecision === "end") {
-      showClosure("ئەم ناسینە کۆتایی هات.", "هیچ بڕیارێکی تایبەتی لای دووەم پێشان نادرێت.", "ended");
+      showClosure("ئەم ناساندنە کۆتایی هات.", "هیچ بڕیارێکی تایبەتی لای دووەم پێشان نادرێت.", "ended");
       return;
     }
     const hasConditional = currentDecision === "conditional" || otherDecision === "conditional";
@@ -163,7 +163,7 @@
   document.querySelectorAll("[data-simulate-decision]").forEach((button) => button.addEventListener("click", () => simulateOtherDecision(button.dataset.simulateDecision)));
   document.querySelector("[data-face-cancel]").addEventListener("click", showDecisionOptions);
   document.querySelector("[data-face-confirm]").addEventListener("click", () => {
-    if (confirmationAction === "end") showClosure("ئەم ناسینە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", "ended");
+    if (confirmationAction === "end") showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", "ended");
     else showClosure("بلۆککردن لەم prototype ـەدا تەنها پیشاندانییە.", "هیچ کارێکی ڕاستەقینە لەسەر هەژمارەکان جێبەجێ نەکرا.", "blocked");
   });
   document.querySelectorAll("[data-face-safety-choice]").forEach((button) => button.addEventListener("click", () => {
@@ -178,7 +178,7 @@
   }));
 
   if (params.has("ended") || params.has("blocked")) {
-    showClosure("ئەم ناسینە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", params.has("blocked") ? "blocked" : "ended");
+    showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", params.has("blocked") ? "blocked" : "ended");
   } else if (params.has("declined")) {
     showClosure("پیشاندانی ڕوو وەستاندرا.", "هیچ وێنەیەک پیشان نەدرا و هیچ شتێک هەڵنەگیرا.", "declined");
   } else if (params.get("choice") === "continue" || params.get("choice") === "conditional") {

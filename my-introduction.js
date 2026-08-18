@@ -21,6 +21,7 @@
     setText("[data-intro-occupation]", introduction.occupation);
     setText("[data-intro-about]", introduction.about);
     setText("[data-intro-status]", isHidden ? "ئێستا شاراوەیە" : "چالاکە لە prototype ـدا");
+    document.querySelector("[data-intro-hidden-note]").hidden = !isHidden;
     toggle.textContent = isHidden ? "پیشاندانی ناساندن" : "شاردنەوەی ناساندن";
 
     const values = document.querySelector("[data-intro-values]");
