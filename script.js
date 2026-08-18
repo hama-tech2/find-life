@@ -27,10 +27,29 @@
   const detailPage = document.querySelector("[data-detail-page]");
   if (detailPage) {
     const { person, slug } = getActiveProfile();
+    const safety = window.FindYourLifeSafety;
+    const subject = `intro:${slug}`;
+    const safetyMenu = document.querySelector("[data-detail-safety]");
+    const closure = document.querySelector("[data-detail-safety-closure]");
+    const showDetailClosure = () => {
+      [...detailPage.children].forEach((element) => { element.hidden = element !== closure; });
+      closure.hidden = false;
+      window.history.replaceState(null, "", `detail.html?person=${slug}&blocked=1`);
+      closure.focus();
+    };
     setText("[data-person-name]", person.displayName); setText("[data-person-age]", person.age); setText("[data-person-city]", person.city); setText("[data-person-occupation]", person.occupation); setText("[data-person-education]", person.education); setText("[data-person-about]", person.about); setText("[data-person-preferred-age]", person.preferredAge); setText("[data-person-preferred-values]", person.preferredValues); setText("[data-person-expectation]", person.expectation);
     const values = document.querySelector("[data-person-values]");
     person.values.forEach((value) => { const tag = document.createElement("span"); tag.textContent = value; values.append(tag); });
     document.querySelector("[data-request-link]")?.addEventListener("click", () => { window.location.href = `request.html?person=${slug}`; });
+    document.querySelectorAll("[data-detail-safety-action]").forEach((button) => button.addEventListener("click", () => {
+      safetyMenu.open = false;
+      if (button.dataset.detailSafetyAction === "report") {
+        window.location.href = safety.reportUrl({ person: person.displayName, context: "introduction", subject, returnUrl: `detail.html?person=${slug}`, active: false });
+        return;
+      }
+      safety.confirmBlock({ subject, trigger: button, onConfirm: showDetailClosure });
+    }));
+    if (safety.isBlocked(subject) || new URLSearchParams(window.location.search).get("blocked") === "1") showDetailClosure();
   }
 
   const requestPage = document.querySelector("[data-request-page]");

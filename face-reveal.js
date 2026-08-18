@@ -17,6 +17,8 @@
   const closure = document.querySelector("[data-face-closure]");
   const safety = document.querySelector("[data-face-safety]");
   const headerBack = document.querySelector("[data-face-header-back]");
+  const safetyApi = window.FindYourLifeSafety;
+  const safetySubject = `request:${requestId}`;
   let cameraStream = null;
   let capturedImage = null;
   let viewedFaceActive = false;
@@ -63,6 +65,7 @@
   const showDecisionOptions = () => {
     removeFaceAccess();
     showState("decision-options");
+    safety.hidden = false;
     window.history.replaceState(null, "", faceUrl("&choice=pending"));
     document.querySelector('[data-face-state="decision-options"]').focus();
   };
@@ -168,16 +171,43 @@
   });
   document.querySelectorAll("[data-face-safety-choice]").forEach((button) => button.addEventListener("click", () => {
     const choice = button.dataset.faceSafetyChoice;
+    const wasViewing = viewedFaceActive;
+    const waitingDecision = currentDecision || (params.get("choice") === "continue" || params.get("choice") === "conditional" ? params.get("choice") : "");
     safety.open = false;
     if (choice === "report") {
-      showFeedback("ڕاپۆرت لەم prototype ـەدا تەنها دۆخێکی پیشاندانییە؛ هیچ ڕاپۆرتێکی ڕاستەقینە نەنێردراوە.");
+      const context = waitingDecision ? "decision-waiting" : "face";
+      const safeReturn = waitingDecision ? faceUrl(`&choice=${waitingDecision}`) : (wasViewing ? faceUrl("&choice=pending") : faceUrl());
+      removeFaceAccess();
+      window.history.replaceState(null, "", safeReturn);
+      window.location.href = safetyApi.reportUrl({ person, context, subject: safetySubject, returnUrl: safeReturn, active: true });
+      return;
+    }
+    if (choice === "block") {
+      removeFaceAccess();
+      safetyApi.confirmBlock({
+        subject: safetySubject,
+        trigger: button,
+        onConfirm: () => showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو و پەیوەندیی زیاتر لابرا.", "blocked"),
+        onCancel: () => {
+          if (waitingDecision) showDecisionWaiting(waitingDecision);
+          else if (wasViewing) showDecisionOptions();
+          else {
+            showState("consent");
+            safety.hidden = false;
+            headerBack.hidden = false;
+            document.querySelector('[data-face-state="consent"] button').focus();
+          }
+        }
+      });
       return;
     }
     removeFaceAccess();
     showConfirmation(choice);
   }));
 
-  if (params.has("ended") || params.has("blocked")) {
+  if (safetyApi.isBlocked(safetySubject) || params.has("blocked")) {
+    showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو و پەیوەندیی زیاتر لابرا.", "blocked");
+  } else if (params.has("ended")) {
     showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", params.has("blocked") ? "blocked" : "ended");
   } else if (params.has("declined")) {
     showClosure("پیشاندانی ڕوو وەستاندرا.", "هیچ وێنەیەک پیشان نەدرا و هیچ شتێک هەڵنەگیرا.", "declined");

@@ -41,6 +41,8 @@
   if (!detail) return;
   const requestId = new URLSearchParams(window.location.search).get("id");
   const request = requestData[requestId] || requestData.r1;
+  const safety = window.FindYourLifeSafety;
+  const subject = `request:${requestId || "r1"}`;
   setText("[data-detail-name]", request.name); setText("[data-detail-age]", request.age); setText("[data-detail-city]", request.city); setText("[data-detail-occupation]", request.occupation); setText("[data-detail-status]", request.status); setText("[data-answer-intention]", request.intention); setText("[data-answer-value]", request.value); setText("[data-answer-question]", request.question);
   document.querySelectorAll("[data-inbox-back]").forEach((link) => { link.href = `requests.html?tab=${request.tab}`; });
   const receivedActions = document.querySelector("[data-received-actions]");
@@ -64,16 +66,29 @@
   } else if (request.lifecycle === "expired" || request.lifecycle === "unavailable") {
     showState("ئەم ناساندنە چیتر چالاک نییە.", "بێ فشار دەتوانیت بگەڕێیتەوە بۆ داواکارییەکان.");
   }
+  if (safety.isBlocked(subject) || new URLSearchParams(window.location.search).get("blocked") === "1") {
+    showState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.");
+    window.history.replaceState(null, "", `request-detail.html?id=${requestId || "r1"}&blocked=1`);
+  }
   document.querySelector("[data-accept-request]")?.addEventListener("click", () => showState("داواکارییەکە لەم prototype ـەدا پەسەند کرا.", "دەتوانیت لەم prototype ـەدا بچیتە قۆناغی ناسینی ڕێنمایی‌کراو.", true));
   const closeConfirmation = document.querySelector("[data-close-confirmation]");
   document.querySelector("[data-show-close]")?.addEventListener("click", () => { closeConfirmation.hidden = false; closeConfirmation.querySelector("[data-confirm-close]").focus(); });
   document.querySelector("[data-cancel-close]")?.addEventListener("click", () => { closeConfirmation.hidden = true; });
   document.querySelector("[data-confirm-close]")?.addEventListener("click", () => showState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت."));
 
-  const safetyConfirmation = document.querySelector("[data-safety-confirmation]");
-  const safetyCopy = document.querySelector("[data-safety-copy]");
-  let safetyChoice = "";
-  document.querySelectorAll("[data-safety-choice]").forEach((button) => button.addEventListener("click", () => { safetyChoice = button.dataset.safetyChoice; safetyCopy.textContent = `دڵنیایت دەتەوێت «${safetyChoice}» لەم prototype ـەدا تاقی بکەیتەوە؟`; safetyConfirmation.hidden = false; safetyConfirmation.querySelector("[data-confirm-safety]").focus(); }));
-  document.querySelector("[data-cancel-safety]")?.addEventListener("click", () => { safetyConfirmation.hidden = true; });
-  document.querySelector("[data-confirm-safety]")?.addEventListener("click", () => { safetyConfirmation.hidden = true; safetyMenu.open = false; const toast = document.querySelector("#requestDetailToast"); toast.textContent = `«${safetyChoice}» لەم prototype ـەدا تەنها پیشاندانی UI ـە.`; toast.classList.add("is-visible"); window.setTimeout(() => toast.classList.remove("is-visible"), 3600); });
+  document.querySelectorAll("[data-safety-choice]").forEach((button) => button.addEventListener("click", () => {
+    safetyMenu.open = false;
+    if (button.dataset.safetyChoice === "report") {
+      window.location.href = safety.reportUrl({ person: request.name, context: "request", subject, returnUrl: `request-detail.html?id=${requestId || "r1"}`, active: request.direction === "received" });
+      return;
+    }
+    safety.confirmBlock({
+      subject,
+      trigger: button,
+      onConfirm: () => {
+        showState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.");
+        window.history.replaceState(null, "", `request-detail.html?id=${requestId || "r1"}&blocked=1`);
+      }
+    });
+  }));
 })();

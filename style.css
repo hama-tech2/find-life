@@ -104,3 +104,62 @@ body.filter-is-open { overflow:hidden; }
 @keyframes async-spin { to { transform:rotate(360deg); } }
 @media (prefers-reduced-motion:reduce) { .async-indicator { animation-duration:1.8s; } }
 @media (min-width:560px) { .filter-overlay { align-items:center; } .filter-actions { grid-template-columns:1fr 1fr; } }
+
+/* Phase 13 — one calm report, block, and account-safety pattern. */
+body.safety-dialog-open { overflow:hidden; }
+.detail-safety-menu { margin-top:var(--space-4); }
+.detail-safety-closure,.report-closure { padding:var(--space-7) var(--space-5); text-align:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-card); }
+.detail-safety-closure h2,.report-closure h2 { margin:0; font-size:23px; }
+.detail-safety-closure p,.report-closure p { margin:var(--space-3) auto var(--space-5); color:var(--text-muted); font-size:14px; line-height:1.85; }
+.detail-safety-closure a,.report-closure a { display:grid; place-items:center; text-decoration:none; }
+.safety-dialog { position:fixed; z-index:50; inset:0; display:grid; place-items:center; padding:20px; background:rgba(28,36,32,.32); }
+.safety-dialog-card { width:min(100%,520px); padding:var(--space-5); background:var(--background); border:1px solid var(--border); border-radius:var(--radius-card); box-shadow:0 14px 38px rgba(28,36,32,.14); }
+.safety-dialog-icon { width:44px; height:44px; display:grid; place-items:center; margin-bottom:var(--space-3); color:#8D302E; background:#F9EEEE; border-radius:14px; font-size:20px; font-weight:700; }
+.safety-dialog-card h2 { margin:0 0 var(--space-2); font-size:22px; }
+.safety-dialog-card p { margin:0 0 var(--space-5); color:var(--text-muted); font-size:14px; line-height:1.85; }
+.safety-dialog-card > div { display:grid; gap:var(--space-3); }
+.report-shell,.account-status-shell { min-height:100vh; }
+.report-page,.account-status-page { width:min(100%,680px); padding:var(--space-3) 20px var(--space-7); margin:0 auto; }
+.report-context { display:flex; align-items:center; gap:var(--space-3); padding:var(--space-4); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-card); }
+.report-context > span { width:46px; height:46px; display:grid; flex:0 0 auto; place-items:center; color:var(--primary); background:var(--primary-soft); border-radius:14px; }
+.report-context > span svg { width:24px; height:24px; }
+.report-context p { margin:0 0 2px; color:var(--text-muted); font-size:12px; }
+.report-context h2 { font-size:20px; }
+.report-intro { max-width:590px; margin:var(--space-4) 0 var(--space-5); color:var(--text-muted); font-size:13px; line-height:1.85; }
+.report-form { display:grid; gap:var(--space-4); }
+.report-reasons { display:grid; gap:var(--space-2); padding:0; margin:0; border:0; }
+.report-reasons legend { margin-bottom:var(--space-2); color:var(--text); font-size:16px; font-weight:700; }
+.report-reasons label { min-height:50px; display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:10px; padding:10px 12px; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-control); font-size:14px; line-height:1.65; }
+.report-reasons label:has(input:checked) { color:var(--primary); background:var(--primary-soft); border-color:var(--primary); font-weight:700; }
+.report-reasons input { width:19px; height:19px; margin:0; accent-color:var(--primary); }
+.report-high-risk { display:grid; gap:4px; padding:12px; margin:0; color:var(--text); background:#FAF4EA; border:1px solid #E6D5B7; border-radius:var(--radius-control); font-size:13px; line-height:1.75; }
+.report-high-risk strong { color:#7C5824; }
+.report-details { display:grid; gap:3px; color:var(--text); font-size:14px; font-weight:700; }
+.report-details span { color:var(--text-muted); font-size:12px; font-weight:400; }
+.report-form textarea { width:100%; min-height:112px; padding:12px 14px; resize:vertical; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-control); outline:0; font:inherit; font-size:14px; line-height:1.8; text-align:right; }
+.report-form textarea:focus { border-color:var(--primary); }
+.report-form textarea::placeholder { color:var(--text-muted); opacity:1; }
+.report-form .character-count { margin-top:calc(var(--space-3) * -1); }
+.report-error { padding:10px 12px; margin:0; color:#742522; background:#F9EEEE; border:1px solid #D9A9A7; border-radius:var(--radius-control); font-size:13px; line-height:1.75; }
+.report-success { padding:var(--space-7) var(--space-5); text-align:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-card); }
+.report-success h2 { margin:0; font-size:22px; line-height:1.55; }
+.report-success > p { margin:var(--space-3) auto var(--space-5); color:var(--text-muted); font-size:14px; line-height:1.85; }
+.report-success .report-recommendation { padding:10px 12px; color:#7C5824; background:#FAF4EA; border-radius:var(--radius-control); font-weight:700; }
+.report-success-actions { display:grid; gap:var(--space-3); }
+.report-success-actions a { display:grid; place-items:center; text-decoration:none; }
+.prototype-state-switch { display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; margin-bottom:var(--space-5); background:var(--surface); border:1px solid var(--border); border-radius:14px; }
+.prototype-state-switch button { min-height:44px; padding:6px 8px; color:var(--text-muted); background:transparent; border:0; border-radius:10px; font:inherit; font-size:12px; font-weight:700; }
+.prototype-state-switch button[aria-pressed="true"] { color:#fff; background:var(--primary); }
+.account-review-state { padding:var(--space-6) var(--space-5); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-card); }
+.account-status-icon { width:54px; height:54px; display:grid; place-items:center; margin-bottom:var(--space-4); color:var(--primary); background:var(--primary-soft); border-radius:17px; }
+.account-status-icon svg { width:28px; height:28px; }
+.account-review-state h2 { margin:0 0 var(--space-3); font-size:23px; line-height:1.55; }
+.account-review-state > p:last-of-type { margin:0; color:var(--text-muted); font-size:14px; line-height:1.9; }
+.restricted-actions { display:grid; gap:var(--space-2); margin-top:var(--space-5); }
+.restricted-actions button { min-height:46px; padding:0 12px; color:var(--text-muted); background:#F1F2EF; border:1px solid var(--border); border-radius:var(--radius-control); font:inherit; text-align:right; opacity:1; cursor:not-allowed; }
+.account-status-allowed { display:grid; gap:var(--space-3); margin-top:var(--space-5); }
+.account-status-allowed h2 { margin-bottom:0; font-size:17px; }
+.account-status-allowed a { display:grid; place-items:center; text-decoration:none; }
+.settings-safety a { display:inline-block; margin-top:var(--space-2); color:var(--primary); font-size:13px; font-weight:700; text-underline-offset:3px; }
+@media (min-width:560px) { .safety-dialog-card > div,.report-success-actions { grid-template-columns:1fr 1fr; } }
+@media (min-width:760px) { .report-page,.account-status-page { padding-top:var(--space-5); } }

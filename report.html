@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | ڕاپۆرتکردن</title>
+  <link rel="stylesheet" href="style.css?v=13">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  </svg>
+  <div class="report-shell" data-report-page>
+    <header class="detail-header"><a class="detail-back" data-report-back href="discover.html" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><h1>ڕاپۆرتکردن</h1><span aria-hidden="true"></span></header>
+    <main class="report-page">
+      <div data-report-content>
+        <section class="report-context" aria-labelledby="report-person"><span aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><div><p data-report-context>ناساندن</p><h2 id="report-person" data-report-person>کەسی بەرامبەر</h2></div></section>
+        <p class="report-intro">هۆکارێکی سەرەکی هەڵبژێرە. ڕاپۆرت بە تەنها سەلماندنی تاوان نییە و پشکنینی ڕاستەقینە لەگەڵ backend و moderator زیاد دەکرێت.</p>
+        <form class="report-form" data-report-form>
+          <fieldset class="report-reasons"><legend>هۆکاری سەرەکی</legend>
+            <label><input type="radio" name="reason" value="threat" required><span>هەڕەشە، ڕەشەکوژی یان زۆرلێکردن</span></label>
+            <label><input type="radio" name="reason" value="under18" required><span>گومانم هەیە ئەم کەسە لە ١٨ ساڵ کەمترە</span></label>
+            <label><input type="radio" name="reason" value="harassment" required><span>ئازاردان یان هەڵسوکەوتی ناشایست</span></label>
+            <label><input type="radio" name="reason" value="fake" required><span>هەژماری ساختە یان خۆکردن بە کەسێکی تر</span></label>
+            <label><input type="radio" name="reason" value="scam" required><span>فێڵکردن یان داوای پارە</span></label>
+            <label><input type="radio" name="reason" value="contact-pressure" required><span>فشاری دووبارە بۆ ناردنی زانیاریی پەیوەندیی ناشایست</span></label>
+            <label><input type="radio" name="reason" value="other" required><span>هۆکارێکی تر</span></label>
+          </fieldset>
+          <p class="report-high-risk" data-report-high-risk hidden><strong>ڕاپۆرتێکی گرنگی سەلامەتی</strong><span>ئەگەر مەترسیی دەستبەجێ هەیە، داوای یارمەتی لە دەسەڵاتدارانی گونجاوی ناوخۆیی بکە. ئەم prototype ـە خۆکارانە پۆلیس ئاگادار ناکاتەوە.</span></p>
+          <label class="report-details" for="reportDetails">وردەکاریی ئارەزوومەندانە <span>بە کورتی ڕوون بکەرەوە چی ڕوویدا.</span></label>
+          <textarea id="reportDetails" name="details" rows="4" maxlength="500" aria-describedby="report-details-count" placeholder="وردەکاریی پێویست بنووسە…"></textarea>
+          <p id="report-details-count" class="character-count">0 / 500</p>
+          <p class="report-error" data-report-error role="alert" hidden></p>
+          <button class="button button-primary" type="submit">ناردنی ڕاپۆرت</button>
+        </form>
+      </div>
+      <section class="report-success" data-report-success hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>ڕێڕەوی ڕاپۆرت لەم frontend prototype ـەدا تەواو بوو.</h2><p>هیچ ڕاپۆرتێکی ڕاستەقینە نەنێردرا و هیچ بڕیارێکی moderation نەدرا. ناردن و پشکنینی moderator دواتر پەیوەست دەکرێت.</p><p class="report-recommendation" data-report-recommendation hidden>بۆ ئەم هۆکارە گرنگە، کۆتایی پێهێنان و بلۆککردنی پەیوەندی پێشنیار دەکرێت.</p><div class="report-success-actions"><button class="button button-danger" type="button" data-report-block hidden>کۆتایی پێهێنان و بلۆککردن</button><a class="button button-secondary" data-report-return href="discover.html">گەڕانەوە</a></div></section>
+      <section class="report-closure quiet-closure-state" data-report-closure hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>ئەم ناساندنە کۆتایی هات.</h2><p>پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە. هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.</p><a class="button button-secondary" href="requests.html">گەڕانەوە بۆ داواکارییەکان</a></section>
+    </main>
+  </div>
+  <script src="safety.js?v=13"></script>
+  <script src="report.js?v=13"></script>
+</body>
+</html>

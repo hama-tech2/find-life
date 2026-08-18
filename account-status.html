@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | دۆخی سەلامەتی هەژمار</title>
+  <link rel="stylesheet" href="style.css?v=13">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  </svg>
+  <div class="account-status-shell" data-account-status-page>
+    <header class="detail-header"><a class="detail-back" href="profile.html" aria-label="گەڕانەوە بۆ هەژمار"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><h1>دۆخی هەژمار</h1><span aria-hidden="true"></span></header>
+    <main class="account-status-page">
+      <div class="prototype-state-switch" role="group" aria-label="دۆخی تاقیکردنەوەی prototype"><button type="button" data-status-mode="review">Prototype: Under review</button><button type="button" data-status-mode="restricted">Prototype: Restricted</button></div>
+      <section class="account-review-state" data-status-state="review" tabindex="-1"><span class="account-status-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><p class="eyebrow">پشکنینی سەلامەتی</p><h2>هەژمارەکەت لەژێر پشکنینی سەلامەتیدایە.</h2><p>ئەمە زمانی بێلایەنە و بە مانای تاوانباربوون نییە. لەم frontend prototype ـەدا هیچ پشکنینێکی ڕاستەقینە ئەنجام نادرێت.</p></section>
+      <section class="account-review-state" data-status-state="restricted" hidden tabindex="-1"><span class="account-status-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span><p class="eyebrow">سنووردارکردنی کاتی</p><h2>هەندێک کردار بە کاتی بەردەست نین تا پشکنینەکە تەواو دەبێت.</h2><p>ئەم دۆخە تەنها بۆ تاقیکردنەوەی UI ـە؛ هیچ سزایەکی هەمیشەیی یان بڕیاری خۆکار نییە.</p><div class="restricted-actions" aria-label="کردارە سنووردارکراوەکان"><button type="button" disabled>ناردنی داواکاریی نوێ</button><button type="button" disabled>کردارە چالاکەکانی گفتوگۆ</button><button type="button" disabled>پیشاندانی ڕوو</button><button type="button" disabled>بڵاوکردنەوەی ناساندنی نوێ</button></div></section>
+      <section class="account-status-allowed"><h2>هێشتا بەردەستن</h2><a class="button button-secondary" href="profile.html">زانیاریی هەژمار</a><a class="button button-secondary" href="settings.html#safety">سەلامەتی و یارمەتی</a><a class="button button-secondary" href="settings.html#account-actions-title">چوونەدەرەوە</a></section>
+    </main>
+  </div>
+  <script src="account-status.js?v=13"></script>
+</body>
+</html>

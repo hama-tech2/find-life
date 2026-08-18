@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#F7F6F2">
   <meta name="description" content="ناساندنی تایبەت بۆ هاوسەرگیریی جدی.">
   <title>Find Your Life | ناساندن</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -16,6 +16,8 @@
     <symbol id="icon-school" viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 12v4.5c3 2 7 2 10 0V12"/></symbol>
     <symbol id="icon-location" viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.2"/></symbol>
     <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
   </svg>
 
   <div class="detail-shell">
@@ -46,10 +48,13 @@
       <p class="protected-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>زانیاریی پەیوەندی و وێنەی ڕوو لەم قۆناغەدا تایبەت دەمێننەوە.</p>
 
       <button class="button button-primary detail-request" type="button" data-request-link>ناردنی داواکاری</button>
+      <details class="safety-menu detail-safety-menu" data-detail-safety><summary><svg aria-hidden="true"><use href="#icon-more"/></svg>سەلامەتی</summary><div class="safety-options"><button type="button" data-detail-safety-action="block">بلۆککردن</button><button type="button" data-detail-safety-action="report">ڕاپۆرتکردن</button></div></details>
+      <section class="detail-safety-closure quiet-closure-state" data-detail-safety-closure hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>ئەم ناساندنە کۆتایی هات.</h2><p>پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.</p><a class="button button-secondary" href="discover.html">گەڕانەوە بۆ دۆزینەوە</a></section>
     </main>
   </div>
 
   <div id="toast" class="toast detail-toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
+  <script src="safety.js?v=13"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>

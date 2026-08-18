@@ -12,6 +12,8 @@
   const isInactive = isConversation && (params.get("inactive") === "1" || params.get("expired") === "1");
   const page = guidedPage || conversationPage;
   if (!page) return;
+  const safety = window.FindYourLifeSafety;
+  const safetySubject = `request:${requestId}`;
 
   document.querySelectorAll("[data-stage-name]").forEach((element) => { element.textContent = person; });
   document.querySelectorAll("[data-stage-back]").forEach((link) => {
@@ -80,7 +82,21 @@
     const menu = document.querySelector("[data-stage-safety]");
     menu.open = false;
     if (choice === "report") {
-      showWarning("ڕاپۆرت لەم prototype ـەدا تەنها دۆخێکی پیشاندانییە؛ هیچ ڕاپۆرتێکی ڕاستەقینە نەنێردراوە.");
+      const context = guidedPage ? "guided" : (isPostFace ? "post-face" : "conversation");
+      const returnUrl = `${window.location.pathname.split("/").pop()}${window.location.search}`;
+      window.location.href = safety.reportUrl({ person, context, subject: safetySubject, returnUrl, active: true });
+      return;
+    }
+    if (choice === "block") {
+      safety.confirmBlock({
+        subject: safetySubject,
+        trigger: button,
+        onConfirm: () => {
+          showQuietState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.", isPostFace);
+          const pageName = guidedPage ? "guided.html" : "conversation.html";
+          window.history.replaceState(null, "", `${pageName}?person=${encodeURIComponent(person)}&request=${requestId}&blocked=1`);
+        }
+      });
       return;
     }
     requestConfirmation(choice);
@@ -95,6 +111,11 @@
   });
 
   if (guidedPage) {
+    if (safety.isBlocked(safetySubject) || params.get("blocked") === "1") {
+      showQuietState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.");
+      window.history.replaceState(null, "", `guided.html?person=${encodeURIComponent(person)}&request=${requestId}&blocked=1`);
+      return;
+    }
     const form = document.querySelector("#guidedForm");
     const fields = [...form.querySelectorAll("textarea")];
     fields.forEach((field) => {
@@ -114,6 +135,11 @@
   }
 
   const input = document.querySelector("#conversationMessage");
+  if (safety.isBlocked(safetySubject) || params.get("blocked") === "1") {
+    showQuietState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.", isPostFace);
+    window.history.replaceState(null, "", `conversation.html?person=${encodeURIComponent(person)}&request=${requestId}&blocked=1`);
+    return;
+  }
   if (isPostFace) {
     faceRequest.hidden = true;
     postFaceEnd.hidden = false;
