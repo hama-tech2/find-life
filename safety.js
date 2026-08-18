@@ -1,5 +1,6 @@
 (() => {
   const blockedPrefix = "find-your-life:prototype-blocked:";
+  const closedPrefix = "find-your-life:prototype-closed:";
 
   const safeSubject = (subject) => String(subject || "prototype").replace(/[^a-z0-9:_-]/gi, "-").slice(0, 80);
   const blockedKey = (subject) => `${blockedPrefix}${safeSubject(subject)}`;
@@ -8,6 +9,13 @@
   };
   const markBlocked = (subject) => {
     try { window.sessionStorage.setItem(blockedKey(subject), "1"); } catch { /* URL state still closes the prototype. */ }
+  };
+  const closedKey = (subject) => `${closedPrefix}${safeSubject(subject)}`;
+  const isClosed = (subject) => {
+    try { return window.sessionStorage.getItem(closedKey(subject)) === "1"; } catch { return false; }
+  };
+  const markClosed = (subject) => {
+    try { window.sessionStorage.setItem(closedKey(subject), "1"); } catch { /* URL state still closes the prototype. */ }
   };
   const safeReturnUrl = (value, fallback = "discover.html") => {
     if (!value || /^(?:[a-z]+:|\/\/|\\)/i.test(value)) return fallback;
@@ -98,5 +106,5 @@
     confirmButton.focus();
   };
 
-  window.FindYourLifeSafety = { confirmBlock, isBlocked, markBlocked, reportUrl, safeReturnUrl };
+  window.FindYourLifeSafety = { confirmBlock, isBlocked, isClosed, markBlocked, markClosed, reportUrl, safeReturnUrl };
 })();

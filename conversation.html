@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
   <title>Find Your Life | گفتوگۆی سنووردار</title>
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14.1">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -14,6 +14,7 @@
     <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
     <symbol id="icon-send" viewBox="0 0 24 24"><path d="m4 4 16 8-16 8 3-8-3-8Z"/><path d="M7 12h13"/></symbol>
     <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 3h3l1.5 5-2 1.5a15 15 0 0 0 5 5l1.5-2 5 1.5v3c0 2-1.5 4-4 4C9 20 4 15 3 8c0-2.5 2-5 4-5Z"/></symbol>
   </svg>
   <div class="stage-shell">
     <header class="stage-header"><a class="detail-back" data-stage-back href="guided.html?person=ئەحمەد&request=r1" aria-label="گەڕانەوە بۆ قۆناغی ناسین"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1 data-stage-name>ئەحمەد</h1><p>قۆناغی ناسین</p></div><details class="header-safety" data-stage-safety><summary aria-label="سەلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary><div><button type="button" data-stage-safety-choice="end">کۆتایی پێهێنانی ناسین</button><button type="button" data-stage-safety-choice="block">بلۆککردن</button><button type="button" data-stage-safety-choice="report">ڕاپۆرتکردن</button></div></details></header>
@@ -23,6 +24,7 @@
       <section class="message-list" data-message-list aria-label="نامەکان"><p class="message message-other">چاوەڕوانییەکەت بۆ ژیانێکی هاوبەش چییە؟</p><p class="message message-self">بۆم گرنگە یەکتر بە ڕێز گوێ بگرین و بە هاوبەشی بڕیار بدەین.</p><p class="message message-other">لە خێزانەوە چی بەهایت پێ گرنگە؟</p><p class="message message-self">متمانە، ئارامی و پشتیوانیی یەکتر.</p><p class="message message-other">چۆن کار و ژیانی خێزانی بە هاوسەنگی دەبینیت؟</p><p class="message message-self">بە گفتوگۆ و پلانکردنی هاوبەش، بەبێ فشار.</p></section>
       <form id="conversationForm" class="conversation-composer"><label class="sr-only" for="conversationMessage">نامەیەکی ڕێزدار بنووسە</label><textarea id="conversationMessage" rows="2" maxlength="300" placeholder="نامەیەکی ڕێزدار بنووسە…" required></textarea><button type="submit" aria-label="ناردن"><svg aria-hidden="true"><use href="#icon-send"/></svg><span>ناردن</span></button></form>
       <p class="stage-warning conversation-warning" data-stage-warning role="alert" hidden></p>
+      <section class="contact-exchange-panel" data-contact-exchange-panel hidden><p data-contact-exchange-status hidden></p><button class="button button-secondary" type="button" data-contact-exchange><svg aria-hidden="true"><use href="#icon-phone"/></svg><span>گۆڕینەوەی پەیوەندی</span></button></section>
       <section class="face-request"><p>هیچ ڕووێک نیشان نادرێت، مەگەر هەردوو لایەن ڕازی بن.</p><button class="button button-secondary" type="button" data-face-request>داواکاری پیشاندانی ڕوو</button></section>
       <button class="button button-danger post-face-end" type="button" data-post-face-end hidden>کۆتایی پێهێنان</button>
       <section class="stage-confirmation" data-stage-confirmation hidden><p data-stage-confirm-copy></p><div><button class="button button-primary" type="button" data-stage-confirm>بەڵێ، بەردەوام بە</button><button class="button button-secondary" type="button" data-stage-cancel>گەڕانەوە</button></div></section>
@@ -30,7 +32,7 @@
     </main>
   </div>
   <div id="conversationToast" class="toast detail-toast" role="status" aria-live="polite"></div>
-  <script src="safety.js?v=13"></script>
-  <script src="conversation.js?v=13"></script>
+  <script src="safety.js?v=14.1"></script>
+  <script src="conversation.js?v=14.2"></script>
 </body>
 </html>

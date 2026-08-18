@@ -8,6 +8,7 @@
   const isPostFace = isConversation && params.get("postFace") === "1";
   const isConditional = isPostFace && params.get("conditional") === "1";
   const selfConditional = isConditional && params.get("selfConditional") === "1";
+  const contactState = isPostFace ? params.get("contact") : "";
   const isClosed = isConversation && params.has("closed");
   const isInactive = isConversation && (params.get("inactive") === "1" || params.get("expired") === "1");
   const page = guidedPage || conversationPage;
@@ -42,6 +43,9 @@
   const postFaceNoticeCopy = document.querySelector("[data-post-face-notice-copy]");
   const conditionPrompt = document.querySelector("[data-condition-compose-prompt]");
   const postFaceEnd = document.querySelector("[data-post-face-end]");
+  const contactExchangePanel = document.querySelector("[data-contact-exchange-panel]");
+  const contactExchangeStatus = document.querySelector("[data-contact-exchange-status]");
+  const contactExchangeButton = document.querySelector("[data-contact-exchange]");
   let safetyChoice = "";
 
   const hideActiveFlow = () => {
@@ -53,6 +57,7 @@
     faceRequest?.setAttribute("hidden", "");
     postFaceNotice?.setAttribute("hidden", "");
     postFaceEnd?.setAttribute("hidden", "");
+    contactExchangePanel?.setAttribute("hidden", "");
     document.querySelector("[data-stage-safety]")?.setAttribute("hidden", "");
     document.querySelector("[data-stage-back]")?.setAttribute("hidden", "");
   };
@@ -111,9 +116,11 @@
   });
 
   if (guidedPage) {
-    if (safety.isBlocked(safetySubject) || params.get("blocked") === "1") {
+    const guidedBlocked = safety.isBlocked(safetySubject) || params.get("blocked") === "1";
+    const guidedClosed = safety.isClosed(safetySubject) || params.get("closed") === "1";
+    if (guidedBlocked || guidedClosed) {
       showQuietState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.");
-      window.history.replaceState(null, "", `guided.html?person=${encodeURIComponent(person)}&request=${requestId}&blocked=1`);
+      window.history.replaceState(null, "", `guided.html?person=${encodeURIComponent(person)}&request=${requestId}&${guidedBlocked ? "blocked" : "closed"}=1`);
       return;
     }
     const form = document.querySelector("#guidedForm");
@@ -135,15 +142,18 @@
   }
 
   const input = document.querySelector("#conversationMessage");
-  if (safety.isBlocked(safetySubject) || params.get("blocked") === "1") {
+  const conversationBlocked = safety.isBlocked(safetySubject) || params.get("blocked") === "1";
+  const conversationClosed = safety.isClosed(safetySubject) || params.get("closed") === "1";
+  if (conversationBlocked || conversationClosed) {
     showQuietState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.", isPostFace);
-    window.history.replaceState(null, "", `conversation.html?person=${encodeURIComponent(person)}&request=${requestId}&blocked=1`);
+    window.history.replaceState(null, "", `conversation.html?person=${encodeURIComponent(person)}&request=${requestId}${isPostFace ? "&postFace=1" : ""}&${conversationBlocked ? "blocked" : "closed"}=1`);
     return;
   }
   if (isPostFace) {
     faceRequest.hidden = true;
     postFaceEnd.hidden = false;
     postFaceNotice.hidden = false;
+    contactExchangePanel.hidden = false;
     postFaceNoticeCopy.textContent = isConditional
       ? "لە پێش بەردەوامبووندا خاڵێکی گرنگ هەیە بۆ گفتوگۆ."
       : "ڕووکان تەنها یەکجار پیشان دران؛ گفتوگۆ بە شێوەی نهێنی بەردەوامە.";
@@ -152,6 +162,18 @@
       input.placeholder = "مەرج یان نیگەرانییەکەت بە ڕێزەوە بنووسە…";
       input.focus();
     }
+    if (contactState === "exchanged") {
+      contactExchangeStatus.textContent = "پەیوەندی گۆڕدراوەتەوە.";
+      contactExchangeStatus.hidden = false;
+      contactExchangeButton.hidden = true;
+    } else if (contactState === "not-ready") {
+      contactExchangeStatus.textContent = "لای دووەم ئێستا ئامادە نییە؛ گفتوگۆکە بەردەوامە و دواتر دەتوانیت دووبارە داوا بکەیت.";
+      contactExchangeStatus.hidden = false;
+    }
+    contactExchangeButton.addEventListener("click", () => {
+      const flags = `${isConditional ? "&conditional=1" : ""}${selfConditional ? "&selfConditional=1" : ""}`;
+      window.location.href = `contact-exchange.html?person=${encodeURIComponent(person)}&request=${encodeURIComponent(requestId)}&postFace=1${flags}`;
+    });
     postFaceEnd.addEventListener("click", () => requestConfirmation("end"));
   }
 

@@ -16,7 +16,8 @@
     conversation: "گفتوگۆ",
     face: "پیشاندانی تایبەتی ڕوو",
     "decision-waiting": "چاوەڕوانیی بڕیاری دوای ڕوو",
-    "post-face": "گفتوگۆی دوای پیشاندانی ڕوو"
+    "post-face": "گفتوگۆی دوای پیشاندانی ڕوو",
+    "contact-exchange": "گۆڕینەوەی پەیوەندی"
   };
   const form = document.querySelector("[data-report-form]");
   const details = document.querySelector("#reportDetails");

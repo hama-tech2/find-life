@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | گۆڕینەوەی پەیوەندی</title>
+  <link rel="stylesheet" href="style.css?v=14.1">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1" fill="currentColor"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M7 3h3l1.5 5-2 1.5a15 15 0 0 0 5 5l1.5-2 5 1.5v3c0 2-1.5 4-4 4C9 20 4 15 3 8c0-2.5 2-5 4-5Z"/></symbol>
+    <symbol id="icon-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.7-3.5 3.2-5.5 7-5.5s6.3 2 7 5.5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  </svg>
+
+  <div class="contact-exchange-shell" data-contact-exchange-page>
+    <header class="stage-header">
+      <a class="detail-back" data-contact-back href="conversation.html?postFace=1" aria-label="گەڕانەوە بۆ گفتوگۆ"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a>
+      <div class="stage-title"><h1>گۆڕینەوەی پەیوەندی</h1><p data-contact-person>کەسی بەرامبەر</p></div>
+      <details class="header-safety" data-contact-safety><summary aria-label="سەلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary><div><button type="button" data-contact-safety-choice="end">کۆتایی پێهێنانی ناسین</button><button type="button" data-contact-safety-choice="block">بلۆککردن</button><button type="button" data-contact-safety-choice="report">ڕاپۆرتکردن</button></div></details>
+    </header>
+
+    <main class="contact-exchange-page">
+      <section class="contact-state" data-contact-state="consent" tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span>
+        <h2>پەیوەندی تەنها بە ڕەزامەندیی هەردوو لایەن دەگۆڕدرێتەوە.</h2>
+        <p>هیچ زانیارییەک پیشان نادرێت تا هەردوو کەس ڕازی و ئامادە بن.</p>
+        <button class="button button-primary" type="button" data-contact-consent>ڕازیم بە گۆڕینەوەی پەیوەندی</button>
+        <button class="button button-secondary" type="button" data-contact-not-now>ئێستا نا</button>
+      </section>
+
+      <section class="contact-state" data-contact-state="consent-waiting" hidden tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span>
+        <h2>تۆ ڕازیت. چاوەڕێی بڕیاری لای دووەمە.</h2>
+        <p>بڕیاری تایبەتی لای دووەم بۆت پیشان نادرێت.</p>
+        <div class="prototype-contact-controls"><p>تەنها بۆ تاقیکردنەوەی prototype:</p><button class="button button-primary" type="button" data-simulate-consent="agree">لای دووەم ڕازییە</button><button class="button button-secondary" type="button" data-simulate-consent="not-ready">لای دووەم ئێستا ئامادە نییە</button></div>
+      </section>
+
+      <section class="contact-state" data-contact-state="prepare" hidden tabindex="-1">
+        <h2>کام پەیوەندییە دەتەوێت هاوبەش بکەیت؟</h2>
+        <p>تەنها یەک پەیوەندی ئامادە بکە. لای دووەم تا ئامادەبوونی هەردوو کەس هیچ وردەکارییەک نابینێت.</p>
+        <form class="contact-preparation-form" data-contact-form novalidate>
+          <fieldset class="contact-type-options"><legend class="sr-only">جۆری پەیوەندی</legend><label><input type="radio" name="contact-type" value="self" checked><span><svg aria-hidden="true"><use href="#icon-phone"/></svg>ژمارەی خۆم</span></label><label><input type="radio" name="contact-type" value="trusted"><span><svg aria-hidden="true"><use href="#icon-person"/></svg>ژمارەی کەسێکی خێزان یان متمانەپێکراو</span></label></fieldset>
+          <div class="contact-fields" data-contact-fields="self"><label for="ownPhone">ژمارەی مۆبایلی من</label><input id="ownPhone" name="own-phone" type="tel" inputmode="tel" autocomplete="off" dir="ltr" maxlength="24"></div>
+          <div class="contact-fields" data-contact-fields="trusted" hidden><label for="trustedName">ناو</label><input id="trustedName" name="trusted-name" maxlength="60" autocomplete="off"><label for="trustedRelationship">پەیوەندی / ڕۆڵ</label><input id="trustedRelationship" name="trusted-relationship" maxlength="60" autocomplete="off" placeholder="وەک: برا، هاوڕێ، کەسی متمانەپێکراو"><label for="trustedPhone">ژمارەی مۆبایل</label><input id="trustedPhone" name="trusted-phone" type="tel" inputmode="tel" autocomplete="off" dir="ltr" maxlength="24"></div>
+          <p class="contact-privacy-note"><svg aria-hidden="true"><use href="#icon-lock"/></svg>پێش ئامادەبوونی هەردوو لایەن، هیچ ناو یان ژمارەیەک پیشان نادرێت.</p>
+          <p class="contact-error" data-contact-error role="alert" hidden></p>
+          <button class="button button-primary" type="submit">ئامادەم</button>
+        </form>
+      </section>
+
+      <section class="contact-state" data-contact-state="ready-waiting" hidden tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>پەیوەندیی تۆ ئامادەیە. چاوەڕێی ئامادەبوونی لای دووەمە.</h2>
+        <p>هێشتا هیچ ناو یان ژمارەیەک پیشان نەدراوە.</p>
+        <div class="prototype-contact-controls"><p>تەنها بۆ تاقیکردنەوەی prototype:</p><button class="button button-primary" type="button" data-simulate-ready>لای دووەم ئامادەیە</button></div>
+      </section>
+
+      <section class="contact-state contact-reveal-state" data-contact-state="reveal" hidden tabindex="-1">
+        <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-check"/></svg></span>
+        <h2>پەیوەندیی هەردوو لایەن لە هەمان کاتدا پیشان درا.</h2>
+        <div class="mutual-contact-grid">
+          <section class="mutual-contact-card"><h3>پەیوەندیی تۆ</h3><dl><div data-own-name-row hidden><dt>ناو</dt><dd data-own-contact-name></dd></div><div data-own-relationship-row hidden><dt>پەیوەندی</dt><dd data-own-contact-relationship></dd></div><div><dt>ژمارەی مۆبایل</dt><dd class="phone-value" dir="ltr" data-own-contact-phone></dd></div></dl></section>
+          <section class="mutual-contact-card"><h3>پەیوەندیی لای دووەم</h3><dl><div><dt>ناو</dt><dd data-other-contact-name></dd></div><div><dt>پەیوەندی</dt><dd data-other-contact-relationship></dd></div><div><dt>ژمارەی مۆبایل</dt><dd class="phone-value" dir="ltr" data-other-contact-phone></dd></div></dl></section>
+        </div>
+        <p class="contact-final-notice">دوای بینینی زانیاریی پەیوەندی، پلاتفۆرم ناتوانێت زانیارییە هاوبەشکراوەکان بگەڕێنێتەوە.</p>
+        <button class="button button-primary" type="button" data-return-after-reveal>گەڕانەوە بۆ گفتوگۆ</button>
+      </section>
+
+      <section class="stage-confirmation contact-end-confirmation" data-contact-end-confirmation hidden><p data-contact-end-copy>دڵنیایت دەتەوێت ئەم ناساندنە کۆتایی پێ بهێنیت؟</p><div><button class="button button-danger" type="button" data-confirm-contact-end>کۆتایی پێهێنان</button><button class="button button-secondary" type="button" data-cancel-contact-end>گەڕانەوە</button></div></section>
+      <section class="stage-quiet-state quiet-closure-state" data-contact-closure hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>ئەم ناساندنە کۆتایی هات.</h2><p data-contact-closure-copy>هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.</p><a class="button button-secondary" href="requests.html?tab=received">گەڕانەوە بۆ داواکارییەکان</a></section>
+    </main>
+  </div>
+
+  <script src="safety.js?v=14.1"></script>
+  <script src="contact-exchange.js?v=14.1"></script>
+</body>
+</html>
