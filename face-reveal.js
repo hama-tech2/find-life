@@ -40,6 +40,7 @@
     states.forEach((state) => { state.hidden = state.dataset.faceState !== name; });
     if (name !== "camera") stopCamera();
     hideFeedback();
+    states.find((state) => state.dataset.faceState === name)?.focus();
   };
   const removeFaceAccess = () => {
     stopCamera();
@@ -55,6 +56,7 @@
     headerBack.hidden = true;
   };
   const showClosure = (title, copy, mode) => {
+    if (mode === "ended") safetyApi.markClosed(safetySubject);
     removeFaceAccess();
     document.querySelector("[data-face-closure-title]").textContent = title;
     document.querySelector("[data-face-closure-copy]").textContent = copy;
@@ -96,6 +98,7 @@
     cameraError.hidden = false;
     captureButton.disabled = true;
     document.querySelector("[data-camera-prompt]").hidden = true;
+    cameraError.focus();
   };
   const startCamera = async () => {
     showState("camera");
@@ -112,6 +115,7 @@
       await video.play();
       document.querySelector("[data-camera-prompt]").hidden = true;
       captureButton.disabled = false;
+      captureButton.focus();
     } catch {
       const currentStream = cameraStream;
       stopCamera();
@@ -207,7 +211,7 @@
 
   if (safetyApi.isBlocked(safetySubject) || params.has("blocked")) {
     showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو و پەیوەندیی زیاتر لابرا.", "blocked");
-  } else if (params.has("ended")) {
+  } else if (safetyApi.isClosed(safetySubject) || params.has("ended")) {
     showClosure("ئەم ناساندنە کۆتایی هات.", "دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.", params.has("blocked") ? "blocked" : "ended");
   } else if (params.has("declined")) {
     showClosure("پیشاندانی ڕوو وەستاندرا.", "هیچ وێنەیەک پیشان نەدرا و هیچ شتێک هەڵنەگیرا.", "declined");

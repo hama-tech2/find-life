@@ -47,6 +47,7 @@
   const contactExchangeStatus = document.querySelector("[data-contact-exchange-status]");
   const contactExchangeButton = document.querySelector("[data-contact-exchange]");
   let safetyChoice = "";
+  let confirmationReturnFocus = null;
 
   const hideActiveFlow = () => {
     document.querySelector("#guidedForm")?.setAttribute("hidden", "");
@@ -73,8 +74,9 @@
     }
     quietState.focus();
   };
-  const requestConfirmation = (choice) => {
+  const requestConfirmation = (choice, trigger) => {
     safetyChoice = choice;
+    confirmationReturnFocus = trigger?.closest("details")?.querySelector("summary") || trigger || document.activeElement;
     confirmationCopy.textContent = choice === "end"
       ? "دڵنیایت دەتەوێت ئەم ناساندنە بە هێواشی کۆتایی پێ بهێنیت؟"
       : "دڵنیایت دەتەوێت بلۆککردن لەم prototype ـەدا تاقی بکەیتەوە؟";
@@ -104,12 +106,20 @@
       });
       return;
     }
-    requestConfirmation(choice);
+    requestConfirmation(choice, button);
   }));
-  document.querySelector("[data-stage-cancel]")?.addEventListener("click", () => { confirmation.hidden = true; });
+  document.querySelector("[data-stage-cancel]")?.addEventListener("click", () => {
+    confirmation.hidden = true;
+    confirmationReturnFocus?.focus();
+  });
   document.querySelector("[data-stage-confirm]")?.addEventListener("click", () => {
     if (safetyChoice === "end") {
+      safety.markClosed(safetySubject);
       showQuietState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت.", isPostFace);
+      if (!isPostFace) {
+        const pageName = guidedPage ? "guided.html" : "conversation.html";
+        window.history.replaceState(null, "", `${pageName}?person=${encodeURIComponent(person)}&request=${requestId}&closed=1`);
+      }
     } else {
       showQuietState("بلۆککردن لەم prototype ـەدا تەنها پیشاندانییە.", "هیچ کارێکی ڕاستەقینە لەسەر هەژمارەکان جێبەجێ نەکرا.", isPostFace);
     }
@@ -174,7 +184,7 @@
       const flags = `${isConditional ? "&conditional=1" : ""}${selfConditional ? "&selfConditional=1" : ""}`;
       window.location.href = `contact-exchange.html?person=${encodeURIComponent(person)}&request=${encodeURIComponent(requestId)}&postFace=1${flags}`;
     });
-    postFaceEnd.addEventListener("click", () => requestConfirmation("end"));
+    postFaceEnd.addEventListener("click", () => requestConfirmation("end", postFaceEnd));
   }
 
   if (isClosed) {

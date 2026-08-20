@@ -50,6 +50,7 @@
   if (request.direction === "sent") { receivedActions.hidden = true; safetyMenu.hidden = true; }
 
   const actionState = document.querySelector("[data-action-state]");
+  const closeTrigger = document.querySelector("[data-show-close]");
   const showState = (title, copy, showGuided = false) => {
     receivedActions.hidden = true;
     document.querySelector("[data-close-confirmation]").hidden = true;
@@ -69,12 +70,19 @@
   if (safety.isBlocked(subject) || new URLSearchParams(window.location.search).get("blocked") === "1") {
     showState("ئەم ناساندنە کۆتایی هات.", "پەیوەندیی زیاتر لەم prototype ـەدا بەردەست نییە و هیچ هۆکارێک بۆ لای دووەم نیشان نادرێت.");
     window.history.replaceState(null, "", `request-detail.html?id=${requestId || "r1"}&blocked=1`);
+  } else if (safety.isClosed(subject) || new URLSearchParams(window.location.search).get("closed") === "1") {
+    showState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت.");
+    window.history.replaceState(null, "", `request-detail.html?id=${requestId || "r1"}&closed=1`);
   }
   document.querySelector("[data-accept-request]")?.addEventListener("click", () => showState("داواکارییەکە لەم prototype ـەدا پەسەند کرا.", "دەتوانیت لەم prototype ـەدا بچیتە قۆناغی ناسینی ڕێنمایی‌کراو.", true));
   const closeConfirmation = document.querySelector("[data-close-confirmation]");
-  document.querySelector("[data-show-close]")?.addEventListener("click", () => { closeConfirmation.hidden = false; closeConfirmation.querySelector("[data-confirm-close]").focus(); });
-  document.querySelector("[data-cancel-close]")?.addEventListener("click", () => { closeConfirmation.hidden = true; });
-  document.querySelector("[data-confirm-close]")?.addEventListener("click", () => showState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت."));
+  closeTrigger?.addEventListener("click", () => { closeConfirmation.hidden = false; closeConfirmation.querySelector("[data-confirm-close]").focus(); });
+  document.querySelector("[data-cancel-close]")?.addEventListener("click", () => { closeConfirmation.hidden = true; closeTrigger?.focus(); });
+  document.querySelector("[data-confirm-close]")?.addEventListener("click", () => {
+    safety.markClosed(subject);
+    showState("ئەم ناساندنە کۆتایی هات.", "هیچ هۆکارێکی تایبەت بۆ لای دووەم نیشان نادرێت.");
+    window.history.replaceState(null, "", `request-detail.html?id=${requestId || "r1"}&closed=1`);
+  });
 
   document.querySelectorAll("[data-safety-choice]").forEach((button) => button.addEventListener("click", () => {
     safetyMenu.open = false;
