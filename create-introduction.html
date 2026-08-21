@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F6F2">
+  <title>Find Your Life | دروستکردنی ناساندن</title>
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M9 7V5h6v2m-11 5h16"/></symbol>
+  </svg>
+  <div class="create-introduction-shell" data-create-introduction-page>
+    <header class="stage-header"><a class="detail-back" href="my-introduction.html" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>ناساندنەکەم</h1><p data-create-progress>١ لە ٣</p></div><span aria-hidden="true"></span></header>
+    <main class="create-introduction-page">
+      <p class="intro-prototype-note"><svg aria-hidden="true"><use href="#icon-shield"/></svg>ئەم زانیاریانە تەنها بۆ ناساندنی گشتییە؛ بەرواری لەدایکبوون و زانیاریی پەیوەندی نیشان نادرێن.</p>
+      <p class="create-error auth-error" data-create-error role="alert" hidden></p>
+
+      <form data-create-form novalidate>
+        <section data-create-step="1" aria-labelledby="create-step-one-title">
+          <div class="create-section-heading"><span class="step-number">١</span><div><h2 id="create-step-one-title" tabindex="-1">دەربارەی من</h2><p>کورت و ڕاستەوخۆ بنووسە.</p></div></div>
+          <div class="intro-form-fields">
+            <label>شار / پارێزگا<select name="city" required><option value="">هەڵبژێرە</option><option value="هەولێر">هەولێر</option><option value="سلێمانی">سلێمانی</option><option value="دهۆک">دهۆک</option><option value="هەڵەبجە">هەڵەبجە</option><option value="کەرکووک">کەرکووک</option></select></label>
+            <label>پیشەی گشتی<input name="occupation" type="text" maxlength="80" required placeholder="بۆ نموونە: مامۆستا"></label>
+            <label>خوێندن <span class="field-helper">(ئارەزوومەندانە)</span><input name="education" type="text" maxlength="80" placeholder="بۆ نموونە: بەکالۆریۆس"></label>
+            <label>دەربارەی من<textarea name="about" maxlength="220" required placeholder="کورتەیەک دەربارەی خۆت بنووسە…"></textarea><span class="field-helper" data-count="about"></span></label>
+          </div>
+          <button class="button button-primary" type="button" data-next-step="1">بەردەوامبوون</button>
+        </section>
+
+        <section data-create-step="2" aria-labelledby="create-step-two-title" hidden>
+          <div class="create-section-heading"><span class="step-number">٢</span><div><h2 id="create-step-two-title" tabindex="-1">چی دەگەڕێم</h2><p>تەنها ئەو شتانە هەڵبژێرە کە بەراستی گرنگن.</p></div></div>
+          <div class="intro-form-fields">
+            <fieldset class="intro-fieldset"><legend>مەودای تەمەن</legend><div class="age-range"><label>لە<input name="min-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="18"></label><label>تا<input name="max-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="45"></label></div></fieldset>
+            <fieldset class="intro-fieldset"><legend>بەها گرنگەکان <span class="field-helper">(زۆرترین ٣)</span></legend><div class="intro-value-chips" role="group" aria-label="بەها گرنگەکان"><button type="button" data-value="ڕێز" aria-pressed="false">ڕێز</button><button type="button" data-value="خێزان" aria-pressed="false">خێزان</button><button type="button" data-value="ئارامی" aria-pressed="false">ئارامی</button><button type="button" data-value="ڕاستگۆیی" aria-pressed="false">ڕاستگۆیی</button><button type="button" data-value="بەرپرسیاری" aria-pressed="false">بەرپرسیاری</button><button type="button" data-value="هاوبەشی ئایندە" aria-pressed="false">هاوبەشی ئایندە</button></div></fieldset>
+            <label>لە هاوسەرگیرییەکی جدی چی دەگەڕێیت؟<textarea name="expectation" maxlength="180" required placeholder="چاوەڕوانییەکەت بە کورتی بنووسە…"></textarea><span class="field-helper" data-count="expectation"></span></label>
+          </div>
+          <div class="create-step-actions"><button class="button button-secondary" type="button" data-previous-step="1">گەڕانەوە</button><button class="button button-primary" type="button" data-next-step="2">بینینی پێشبینین</button></div>
+        </section>
+
+        <section data-create-step="3" aria-labelledby="create-step-three-title" hidden>
+          <div class="create-section-heading"><span class="step-number">٣</span><div><h2 id="create-step-three-title" tabindex="-1">پێشبینین</h2><p>ئەمە ئەوەیە کە لە ناساندنەکەتدا دەبینرێت.</p></div></div>
+          <article class="intro-preview-card">
+            <div class="card-heading"><div><h2 data-preview-name></h2><p><span data-preview-age></span> <span aria-hidden="true">•</span> <span data-preview-city></span></p></div><span class="private-profile" aria-label="پڕۆفایلی پارێزراو"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span></div>
+            <p class="meta-line"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg><span data-preview-occupation></span></p>
+            <p class="preview-education" data-preview-education></p>
+            <div class="value-list" data-preview-values></div>
+            <section class="preview-copy"><h3>دەربارەی من</h3><p data-preview-about></p></section>
+            <section class="preview-copy"><h3>چی دەگەڕێم</h3><dl><div><dt>مەودای تەمەن</dt><dd data-preview-age-range></dd></div><div><dt>چاوەڕوانی</dt><dd data-preview-expectation></dd></div></dl></section>
+          </article>
+          <p class="preview-discover-note">لە دۆزینەوەدا تەنها مەودای تەمەن دەبینرێت؛ تەمەنی ورد تەنها لە ناساندنەوەدا دەردەکەوێت.</p>
+          <div class="create-step-actions"><button class="button button-secondary" type="button" data-previous-step="2">دەستکاری کردن</button><button class="button button-primary" type="button" data-publish-introduction>بڵاوکردنەوەی ناساندن</button></div>
+        </section>
+      </form>
+    </main>
+  </div>
+  <script src="introduction.js?v=15"></script>
+  <script src="create-introduction.js?v=15"></script>
+</body>
+</html>

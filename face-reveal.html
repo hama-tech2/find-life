@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
   <title>Find Your Life | پیشاندانی تایبەتی ڕوو</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -16,25 +16,25 @@
     <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
   </svg>
   <div class="face-shell" data-face-page>
-    <header class="stage-header"><a class="detail-back" data-face-header-back href="conversation.html?person=ئەحمەد&request=r1" aria-label="گەڕانەوە بۆ گفتوگۆ"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1 data-face-name>ئەحمەد</h1><p>پیشاندانی تایبەتی ڕوو</p></div><details class="header-safety" data-face-safety><summary aria-label="سلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary><div><button type="button" data-face-safety-choice="end">کۆتایی پێهێنانی ناسین</button><button type="button" data-face-safety-choice="block">بلۆککردن</button><button type="button" data-face-safety-choice="report">ڕاپۆرتکردن</button></div></details></header>
+    <header class="stage-header"><a class="detail-back" data-face-header-back href="conversation.html?person=ئەحمەد&request=r1" aria-label="گەڕانەوە بۆ گفتوگۆ"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1 data-face-name>ئەحمەد</h1><p>پیشاندانی تایبەتی ڕوو</p></div><details class="header-safety" data-face-safety><summary aria-label="سەلامەتی"><svg aria-hidden="true"><use href="#icon-more"/></svg></summary><div><button type="button" data-face-safety-choice="end">کۆتایی پێهێنانی ناسین</button><button type="button" data-face-safety-choice="block">بلۆککردن</button><button type="button" data-face-safety-choice="report">ڕاپۆرتکردن</button></div></details></header>
     <main class="face-page">
-      <section class="face-state" data-face-state="consent">
+      <section class="face-state" data-face-state="consent" tabindex="-1">
         <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>پیشاندانی ڕوو تەنها بە ڕەزامەندیی هەردوو لایەنە.</h2><p>وێنەکەت لە کامێراوە تەنها بۆ ئەم دانیشتنە بەکار دەهێنرێت. هیچ وێنەیەک بڵاو یان هەڵناگیرێت.</p><button class="button button-primary" type="button" data-consent-yes>بەڵێ، ئامادەم</button><button class="button button-secondary" type="button" data-consent-no>نەخێر، ئێستا نا</button></section>
 
-      <section class="face-state" data-face-state="camera" hidden>
+      <section class="face-state" data-face-state="camera" hidden tabindex="-1">
         <h2>لە کامێراوە وێنەیەکی نوێ بگرە</h2><p>تەنها کامێرا بەکاربهێنە؛ هەڵبژاردنی وێنە لە گەلەری بەردەست نییە.</p>
         <div class="camera-frame"><video data-camera-video autoplay playsinline muted aria-label="پیشاندانی کامێرا"></video><p data-camera-prompt><svg aria-hidden="true"><use href="#icon-camera"/></svg>کامێرا ئامادە دەکرێت…</p></div>
-        <section class="camera-error" data-camera-error hidden><h3>دەستگەیشتن بە کامێرا نەکرا</h3><p>ڕێگەی کامێرا بدە یان دڵنیابە کە لەسەر ئەم ئامێرە بەردەستە.</p><button class="button button-secondary" type="button" data-camera-retry>هەوڵدانەوە</button></section>
+        <section class="camera-error" data-camera-error role="alert" hidden tabindex="-1"><h3>دەستگەیشتن بە کامێرا نەکرا</h3><p>ڕێگەی کامێرا بدە یان دڵنیابە کە لەسەر ئەم ئامێرە بەردەستە.</p><button class="button button-secondary" type="button" data-camera-retry>هەوڵدانەوە</button></section>
         <button class="button button-primary" type="button" data-camera-capture disabled>گرتنی وێنەی کامێرا</button>
       </section>
 
-      <section class="face-state" data-face-state="ready" hidden>
+      <section class="face-state" data-face-state="ready" hidden tabindex="-1">
         <h2>تۆ ئامادەیت</h2><p>وێنەکەت تەنها لە بیرگەی کاتی ئەم پەڕەیەدا ماوەتەوە و هیچ شوێنێک هەڵناگیرێت.</p><img class="captured-preview" data-captured-preview alt="پێشبینی وێنەی کاتی کامێرا" hidden><button class="button button-secondary" type="button" data-retake>گرتنەوەی وێنە</button><button class="button button-primary" type="button" data-enter-waiting>تەواو، چاوەڕێ بمینە</button></section>
 
-      <section class="face-state" data-face-state="waiting" hidden>
+      <section class="face-state" data-face-state="waiting" hidden tabindex="-1">
         <span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>تۆ ئامادەیت</h2><p>چاوەڕێی ڕەزامەندی و ئامادەبوونی لای دووەمە. ئەم پەڕە prototype ـە؛ دەتوانیت لە خوارەوە دۆخەکە شبیه‌سازی بکەیت.</p><button class="button button-secondary" type="button" data-simulate-ready>شبیه‌سازی ئامادەبوونی لای دووەم</button></section>
 
-      <section class="face-state private-view" data-face-state="view" hidden>
+      <section class="face-state private-view" data-face-state="view" hidden tabindex="-1">
         <div class="private-view-top"><span>بینینی کاتی</span><span>تەنها بۆ تۆ</span></div>
         <div class="other-private-photo" role="img" aria-label="وێنەی نموونەی تایبەتیی کەسی دووەم"><div class="portrait-head"></div><div class="portrait-body"></div><div class="private-watermark">Find Your Life<br>Private View</div></div>
         <p class="private-view-note">هیچ دوگمەیەکی دابەزاندن یان هاوبەشکردن نییە. گرتنی وێنەی شاشە ناتوانرێت بە ڕاستی ڕێگری لێ بکرێت؛ تکایە ڕێز لە نهێنی بگرە.</p>
@@ -46,10 +46,11 @@
 
       <section class="face-confirmation" data-face-confirmation hidden><p data-face-confirm-copy></p><div><button class="button button-primary" type="button" data-face-confirm>بەڵێ، بەردەوام بە</button><button class="button button-secondary" type="button" data-face-cancel>گەڕانەوە</button></div></section>
       <p class="face-feedback" data-face-feedback role="status" hidden></p>
-      <section class="face-closure" data-face-closure hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-face-closure-title>ئەم ناسینە کۆتایی هات.</h2><p data-face-closure-copy>دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.</p><a class="button button-secondary" href="discover.html">گەڕانەوە بۆ دۆزینەوە</a></section>
+      <section class="face-closure quiet-closure-state" data-face-closure hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-face-closure-title>ئەم ناساندنە کۆتایی هات.</h2><p data-face-closure-copy>دەستگەیشتن بە پیشاندانی تایبەتی ڕوو لابرا.</p><a class="button button-secondary" href="discover.html">گەڕانەوە بۆ دۆزینەوە</a></section>
       <canvas data-capture-canvas hidden></canvas>
     </main>
   </div>
-  <script src="face-reveal.js"></script>
+  <script src="safety.js?v=15"></script>
+  <script src="face-reveal.js?v=15"></script>
 </body>
 </html>

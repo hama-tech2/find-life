@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
   <title>Find Your Life | داواکاری</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -24,11 +24,12 @@
       <p class="protected-notice"><svg aria-hidden="true"><use href="#icon-shield"/></svg>زانیاریی پەیوەندی لەم قۆناغەدا تایبەت دەمێننەوە.</p>
       <div class="received-actions" data-received-actions><button class="button button-primary" type="button" data-accept-request>پەسەندکردن</button><button class="button button-secondary" type="button" data-show-close>کۆتایی پێهێنان</button></div>
       <section class="quiet-confirmation" data-close-confirmation hidden><p>دڵنیایت دەتەوێت ئەم ناساندنە بە هێواشی کۆتایی پێ بهێنیت؟ هۆکارەکە بۆ لای دووەم نیشان نادرێت.</p><div><button class="button button-primary" type="button" data-confirm-close>بەڵێ، کۆتایی پێبهێنە</button><button class="button button-secondary" type="button" data-cancel-close>گەڕانەوە</button></div></section>
-      <section class="prototype-action-state" data-action-state hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-action-title></h2><p data-action-copy></p><a class="button button-primary" data-guided-continue href="guided.html" hidden>بەردەوامبوون بۆ ناسین</a><a class="button button-secondary" data-inbox-back href="requests.html?tab=received">گەڕانەوە بۆ داواکارییەکان</a></section>
-      <details class="safety-menu" data-safety-menu><summary><svg aria-hidden="true"><use href="#icon-more"/></svg>سلامەتی</summary><div class="safety-options"><button type="button" data-safety-choice="بلۆککردن">بلۆککردن</button><button type="button" data-safety-choice="ڕاپۆرتکردن">ڕاپۆرتکردن</button></div><div class="safety-confirmation" data-safety-confirmation hidden><p data-safety-copy></p><div><button type="button" class="button button-primary" data-confirm-safety>بەڵێ، بەردەوام بە</button><button type="button" class="button button-secondary" data-cancel-safety>گەڕانەوە</button></div></div></details>
+      <section class="prototype-action-state quiet-closure-state" data-action-state hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2 data-action-title></h2><p data-action-copy></p><a class="button button-primary" data-guided-continue href="guided.html" hidden>بەردەوامبوون بۆ ناسین</a><a class="button button-secondary" data-inbox-back href="requests.html?tab=received">گەڕانەوە بۆ داواکارییەکان</a></section>
+      <details class="safety-menu" data-safety-menu><summary><svg aria-hidden="true"><use href="#icon-more"/></svg>سەلامەتی</summary><div class="safety-options"><button type="button" data-safety-choice="block">بلۆککردن</button><button type="button" data-safety-choice="report">ڕاپۆرتکردن</button></div></details>
     </main>
   </div>
   <div id="requestDetailToast" class="toast detail-toast" role="status" aria-live="polite"></div>
-  <script src="requests.js"></script>
+  <script src="safety.js?v=15"></script>
+  <script src="requests.js?v=15"></script>
 </body>
 </html>
