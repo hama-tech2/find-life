@@ -4,72 +4,60 @@
 
   const params = new URLSearchParams(window.location.search);
   const modeButtons = [...document.querySelectorAll("[data-auth-mode]")];
-  const modes = document.querySelector("[data-auth-modes]");
   const signupForm = document.querySelector("[data-signup-form]");
   const loginForm = document.querySelector("[data-login-form]");
-  const pending = document.querySelector('[data-auth-state="pending"]');
-  const loginSuccess = document.querySelector('[data-auth-state="login-success"]');
   const signupError = document.querySelector("[data-signup-error]");
   const loginError = document.querySelector("[data-login-error]");
 
-  const setMode = (mode) => {
-    const signup = mode !== "login";
-    modeButtons.forEach((button) => button.setAttribute("aria-selected", String((button.dataset.authMode === "signup") === signup)));
+  const setMode = (mode, moveFocus = false) => {
+    const selectedMode = mode === "login" ? "login" : "signup";
+    const signup = selectedMode === "signup";
+    modeButtons.forEach((button) => {
+      const selected = button.dataset.authMode === selectedMode;
+      button.setAttribute("aria-selected", String(selected));
+      button.tabIndex = selected ? 0 : -1;
+      if (selected && moveFocus) button.focus();
+    });
     signupForm.hidden = !signup;
     loginForm.hidden = signup;
     signupError.hidden = true;
     loginError.hidden = true;
-    window.history.replaceState(null, "", `auth.html?mode=${signup ? "signup" : "login"}`);
-  };
-  const ageFromDate = (value) => {
-    const birthday = new Date(`${value}T00:00:00`);
-    const today = new Date();
-    let age = today.getFullYear() - birthday.getFullYear();
-    const beforeBirthday = today.getMonth() < birthday.getMonth() || (today.getMonth() === birthday.getMonth() && today.getDate() < birthday.getDate());
-    if (beforeBirthday) age -= 1;
-    return age;
-  };
-  const showSignupError = (message) => { signupError.textContent = message; signupError.hidden = false; };
-  const showLoginError = (message) => { loginError.textContent = message; loginError.hidden = false; };
-  const showPending = () => {
-    modes.hidden = true;
-    pending.hidden = false;
-    window.history.replaceState(null, "", "auth.html?state=pending");
-    pending.focus();
-  };
-  const showLoginSuccess = () => {
-    modes.hidden = true;
-    loginSuccess.hidden = false;
-    loginSuccess.focus();
+    window.history.replaceState(null, "", `auth.html?mode=${selectedMode}`);
   };
 
-  modeButtons.forEach((button) => button.addEventListener("click", () => setMode(button.dataset.authMode)));
+  modeButtons.forEach((button, index) => {
+    button.addEventListener("click", () => setMode(button.dataset.authMode));
+    button.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const nextIndex = event.key === "ArrowLeft" ? (index + 1) % modeButtons.length : (index - 1 + modeButtons.length) % modeButtons.length;
+      setMode(modeButtons[nextIndex].dataset.authMode, true);
+    });
+  });
+
+  document.querySelector("[data-google-auth]").addEventListener("click", () => {
+    window.location.href = "onboarding.html?source=google";
+  });
+
   signupForm.addEventListener("submit", (event) => {
     event.preventDefault();
     signupError.hidden = true;
-    if (!signupForm.checkValidity()) { signupForm.reportValidity(); return; }
-    const dob = signupForm.elements.dob.value;
-    const invite = signupForm.elements.invite.value.trim();
-    if (!dob || ageFromDate(dob) < 18) {
-      showSignupError("تەنها کەسانی 18+ دەتوانن لەم prototype ـەدا بەردەوام بن.");
+    if (!signupForm.checkValidity()) {
+      signupForm.reportValidity();
       return;
     }
-    if (invite.length < 4) {
-      showSignupError("کۆدی بانگهێشتەکە بۆ prototype دروست نییە.");
-      return;
-    }
-    showPending();
+    window.location.href = "onboarding.html?source=email";
   });
+
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     loginError.hidden = true;
-    if (!loginForm.checkValidity()) { loginForm.reportValidity(); return; }
-    showLoginSuccess();
-  });
-  document.querySelector("[data-prototype-approve]").addEventListener("click", () => {
-    window.location.href = "onboarding.html";
+    if (!loginForm.checkValidity()) {
+      loginForm.reportValidity();
+      return;
+    }
+    window.location.href = "discover.html?login=1";
   });
 
-  if (params.get("state") === "pending") showPending();
-  else setMode(params.get("mode") === "login" ? "login" : "signup");
+  setMode(params.get("mode") === "login" ? "login" : "signup");
 })();

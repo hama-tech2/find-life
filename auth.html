@@ -4,47 +4,65 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
+  <meta name="description" content="Find Your Life — پلاتفۆرمێکی تایبەت بۆ ناسین و هاوسەرگیریی جدی.">
   <title>Find Your Life | هەژمار</title>
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
-    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M12 21V7m0 5c-4 0-6-2.5-6-6 4 0 6 2.5 6 6Zm0-2c4 0 6-2.5 6-6-4 0-6 2.5-6 6Z"/><path d="M12 21 5 14m7 7 7-7"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
   </svg>
-  <div class="auth-shell" data-auth-page>
-    <header class="stage-header"><a class="detail-back" href="index.html" aria-label="گەڕانەوە بۆ سەرەتا"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>هەژمار</h1><p>prototype ـی داخراو</p></div><span aria-hidden="true"></span></header>
-    <main class="auth-page">
-      <section class="auth-modes" data-auth-modes>
-        <div class="auth-tabs" role="tablist" aria-label="جۆری هەژمار"><button type="button" role="tab" aria-selected="true" data-auth-mode="signup">دروستکردنی هەژمار</button><button type="button" role="tab" aria-selected="false" data-auth-mode="login">چوونەژوورەوە</button></div>
 
-        <form class="auth-form" data-signup-form novalidate>
-          <div class="auth-heading"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span><h2>دەستپێبکە بە هەژمارێکی تایبەتی</h2><p>ئەمە prototype ـێکی داخراوە؛ هیچ هەژمارێکی ڕاستەقینە دروست ناکرێت.</p></div>
+  <div class="auth-shell auth-entry-shell" data-auth-page>
+    <main class="auth-page auth-entry-page">
+      <section class="auth-card" aria-labelledby="auth-title">
+        <a class="auth-back" href="index.html" aria-label="گەڕانەوە بۆ سەرەتا"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a>
+
+        <div class="auth-brand">
+          <span class="auth-brand-mark" aria-hidden="true"><svg><use href="#icon-leaf"/></svg></span>
+          <p class="auth-wordmark" lang="en" dir="ltr">Find Your Life</p>
+          <h1 id="auth-title">بۆ ناسین و هاوسەرگیریی جدی</h1>
+          <p>شوێنێکی ئارام و تایبەت بۆ دەستپێکردنی ناسینێکی بەڕێز.</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="جۆری چوونەژوورەوە">
+          <button id="signupTab" type="button" role="tab" aria-selected="true" aria-controls="signupPanel" data-auth-mode="signup">دروستکردنی هەژمار</button>
+          <button id="loginTab" type="button" role="tab" aria-selected="false" aria-controls="loginPanel" data-auth-mode="login">چوونەژوورەوە</button>
+        </div>
+
+        <button class="google-auth-button" type="button" data-google-auth>
+          <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.55h3.24c1.9-1.75 2.98-4.33 2.98-7.42Z"/>
+            <path fill="#34A853" d="M12 22c2.7 0 4.98-.9 6.64-2.35l-3.24-2.55c-.9.6-2.05.96-3.4.96-2.61 0-4.82-1.76-5.61-4.13H3.04v2.63A10 10 0 0 0 12 22Z"/>
+            <path fill="#FBBC05" d="M6.39 13.93A6 6 0 0 1 6.08 12c0-.67.11-1.32.31-1.93V7.44H3.04A10 10 0 0 0 2 12c0 1.64.39 3.19 1.04 4.56l3.35-2.63Z"/>
+            <path fill="#EA4335" d="M12 5.94c1.47 0 2.79.51 3.83 1.5l2.88-2.88A9.65 9.65 0 0 0 12 2a10 10 0 0 0-8.96 5.44l3.35 2.63C7.18 7.7 9.39 5.94 12 5.94Z"/>
+          </svg>
+          <span>بەردەوامبوون بە Google</span>
+        </button>
+
+        <div class="auth-divider" aria-hidden="true"><span>یان</span></div>
+
+        <form id="signupPanel" class="auth-form auth-email-form" data-signup-form role="tabpanel" aria-labelledby="signupTab" novalidate>
           <label>ئیمەیڵ<input name="signup-email" type="email" dir="ltr" inputmode="email" autocomplete="email" required placeholder="name@example.com"></label>
           <label>وشەی نهێنی<input name="signup-password" type="password" dir="ltr" autocomplete="new-password" required minlength="8" placeholder="٨ پیت یان زیاتر"></label>
-          <label>بەرواری لەدایکبوون <span class="field-helper">تایبەتییە و هیچ کات لە ناساندنتدا نیشان نادرێت.</span><input name="dob" type="date" dir="ltr" required></label>
-          <label>کۆدی بانگهێشت<input name="invite" dir="ltr" required minlength="4" maxlength="40" autocomplete="off" placeholder="••••••"></label>
-          <label class="check-field"><input name="adult-confirmation" type="checkbox" required><span>18+ ـم و تەنها بۆ هاوسەرگیرییەکی جدی بەکاریدەهێنم.</span></label>
           <p class="auth-error" data-signup-error role="alert" hidden></p>
-          <p class="auth-prototype-note"><svg aria-hidden="true"><use href="#icon-shield"/></svg>بەرواری لەدایکبوون تەنها بۆ پشکنینی سادەی تەمەن بەکاردێت؛ هیچ پشتڕاستکردنەوەی فەرمی یان ناسنامەیی نییە.</p>
-          <button class="button button-primary" type="submit">ناردنی داواکاریی هەژمار</button>
+          <button class="button button-primary" type="submit">دروستکردنی هەژمار</button>
         </form>
 
-        <form class="auth-form" data-login-form hidden novalidate>
-          <div class="auth-heading"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-lock"/></svg></span><h2>چوونەژوورەوە</h2><p>چوونەژوورەوە لەم قۆناغەدا تەنها تاقیکردنەوەی prototype ـە.</p></div>
+        <form id="loginPanel" class="auth-form auth-email-form" data-login-form role="tabpanel" aria-labelledby="loginTab" hidden novalidate>
           <label>ئیمەیڵ<input name="login-email" type="email" dir="ltr" inputmode="email" autocomplete="email" required placeholder="name@example.com"></label>
           <label>وشەی نهێنی<input name="login-password" type="password" dir="ltr" autocomplete="current-password" required minlength="8" placeholder="وشەی نهێنی"></label>
           <p class="auth-error" data-login-error role="alert" hidden></p>
           <button class="button button-primary" type="submit">چوونەژوورەوە</button>
         </form>
-      </section>
 
-      <section class="auth-state" data-auth-state="pending" hidden tabindex="-1"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>هەژمارەکەت نێردراوە بۆ پشکنین.</h2><p>لە closed beta ـدا هەژمارە نوێیەکان پێش دەستگەیشتن پشکنین دەکرێن. لەم prototype ـەدا هیچ پشکنین یان پەسەندکردنێکی ڕاستەقینە نییە.</p><button class="button button-primary" type="button" data-prototype-approve>Prototype: Approve account</button></section>
-      <section class="auth-state" data-auth-state="login-success" hidden tabindex="-1"><span class="success-mark" aria-hidden="true"><svg><use href="#icon-check"/></svg></span><h2>چوونەژوورەوەی prototype تەواو بوو.</h2><p>هیچ پشتڕاستکردنەوەی هەژمار لە ڕاستیدا نەکراوە.</p><a class="button button-primary" href="discover.html">لە prototype ـەدا بچۆ بۆ دۆزینەوە</a></section>
+        <p class="auth-privacy-line"><svg aria-hidden="true"><use href="#icon-shield"/></svg><span>تەنها بۆ 18+ و هاوسەرگیریی جدی؛ وێنەی ڕوو بەگشتی پیشان نادرێت.</span></p>
+      </section>
     </main>
   </div>
-  <script src="auth.js?v=15"></script>
+
+  <script src="auth.js?v=16"></script>
 </body>
 </html>

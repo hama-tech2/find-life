@@ -5,28 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F7F6F2">
   <title>Find Your Life | ڕێکخستنی سەرەتایی</title>
-  <link rel="stylesheet" href="style.css?v=15">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="M12 8v5m0 3h.01"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 5-3.3 8.4-7 10-3.7-1.6-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
   </svg>
   <div class="onboarding-shell" data-onboarding-page>
-    <header class="stage-header"><a class="detail-back" href="auth.html?mode=signup" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>ڕێکخستنی سەرەتایی</h1><p>هەنگاوی ١ لە ١</p></div><span aria-hidden="true"></span></header>
+    <header class="stage-header"><a class="detail-back" href="auth.html?mode=signup" aria-label="گەڕانەوە"><svg aria-hidden="true"><use href="#icon-arrow"/></svg><span>گەڕانەوە</span></a><div class="stage-title"><h1>ڕێکخستنی سەرەتایی</h1><p>تەنها چەند هەڵبژاردەیەکی کورت</p></div><span aria-hidden="true"></span></header>
     <main class="onboarding-page">
-      <section class="onboarding-intro"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>تەنها چەند ڕێکخستنێکی سادە</h2><p>ئەمە ناساندنی گشتیی تۆ نییە؛ تەنها بۆ دەستپێکردنی دۆزینەوەی گونجاوە.</p></section>
+      <section class="onboarding-intro"><span class="face-state-icon" aria-hidden="true"><svg><use href="#icon-shield"/></svg></span><h2>دۆزینەوەکەت ڕێکبخە</h2><p>ئەم زانیارییانە ناساندنی گشتیی تۆ نییە؛ تەنها بۆ تەمەن و هەڵبژاردە سەرەتاییەکانن.</p></section>
+
       <form class="onboarding-form" data-onboarding-form novalidate>
+        <div class="onboarding-age-check">
+          <label>بەرواری لەدایکبوون <span id="dobHelp" class="field-helper">تایبەتییە و هیچ کات لە ناساندنتدا نیشان نادرێت.</span><input name="dob" type="date" dir="ltr" autocomplete="bday" aria-describedby="dobHelp" required></label>
+          <label class="check-field"><input name="adult-confirmation" type="checkbox" required><span>18+ ـم و تەنها بۆ هاوسەرگیرییەکی جدی بەکاریدەهێنم.</span></label>
+        </div>
+
         <fieldset><legend>من</legend><div class="choice-row" role="group" aria-label="من"><button type="button" data-self="man" aria-pressed="false">پیاوم</button><button type="button" data-self="woman" aria-pressed="false">ژنم</button></div></fieldset>
         <fieldset><legend>بەدوای</legend><div class="choice-row" role="group" aria-label="بەدوای"><button type="button" data-seeking="woman" aria-pressed="false">ژن دەگەڕێم</button><button type="button" data-seeking="man" aria-pressed="false">پیاو دەگەڕێم</button></div></fieldset>
+
         <label>شار / پارێزگا<select name="city" required><option value="">هەڵبژێرە</option><option value="هەولێر">هەولێر</option><option value="سلێمانی">سلێمانی</option><option value="دهۆک">دهۆک</option><option value="هەڵەبجە">هەڵەبجە</option><option value="کەرکووک">کەرکووک</option></select></label>
+
         <fieldset><legend>مەودای تەمەنی دڵخواز</legend><div class="age-range"><label>لە<input name="min-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="18"></label><label>تا<input name="max-age" type="number" min="18" step="1" inputmode="numeric" required placeholder="45"></label></div></fieldset>
+
+        <fieldset class="onboarding-values"><legend>بەها گرنگەکان <span class="field-helper">تا ٣ دانە هەڵبژێرە</span></legend><div class="intro-value-chips" role="group" aria-describedby="valuesHelp"><button type="button" data-onboarding-value="ڕاستگۆیی" aria-pressed="false">ڕاستگۆیی</button><button type="button" data-onboarding-value="خێزان" aria-pressed="false">خێزان</button><button type="button" data-onboarding-value="باوەڕ" aria-pressed="false">باوەڕ</button><button type="button" data-onboarding-value="ئارامی" aria-pressed="false">ئارامی</button><button type="button" data-onboarding-value="ڕێز" aria-pressed="false">ڕێز</button></div><p id="valuesHelp" class="field-helper">ئەو بەهایانە هەڵبژێرە کە لە ناسینێکی جدیدا بۆت گرنگن.</p></fieldset>
+
         <label class="check-field"><input name="serious-intention" type="checkbox" required><span>تەنها بۆ هاوسەرگیرییەکی جدی</span></label>
         <p class="auth-error" data-onboarding-error role="alert" hidden></p>
         <button class="button button-primary" type="submit">بەردەوامبوون</button>
       </form>
     </main>
   </div>
-  <script src="onboarding.js?v=15"></script>
+  <script src="onboarding.js?v=16"></script>
 </body>
 </html>
